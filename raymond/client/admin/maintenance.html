@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maintenance & CV Editor | Admin Panel</title>
+  <link rel="stylesheet" href="../css/admin.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    /* ---- PHOTO UPLOAD ---- */
+    .photo-upload-wrap {
+      display: flex; align-items: center; gap: 1.5rem;
+      flex-wrap: wrap; margin-bottom: 1.5rem;
+    }
+    .photo-preview-box {
+      position: relative; width: 110px; height: 110px; flex-shrink: 0;
+    }
+    #photoPreview {
+      width: 110px; height: 110px; border-radius: 50%;
+      object-fit: cover; object-position: top center;
+      border: 3px solid var(--primary);
+      box-shadow: 0 4px 16px rgba(26,115,232,.25);
+    }
+    .photo-upload-btn {
+      position: absolute; bottom: 2px; right: 2px;
+      width: 30px; height: 30px; border-radius: 50%;
+      background: var(--primary); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .78rem; cursor: pointer; border: 2px solid #fff;
+      transition: background .2s;
+    }
+    .photo-upload-btn:hover { background: var(--primary-dark); }
+    #photoFileInput { display: none; }
+    .photo-upload-info { flex: 1; }
+    .photo-upload-info h4 { font-size: .9rem; font-weight: 700; color: var(--dark); margin-bottom: .3rem; }
+    .photo-upload-info p { font-size: .78rem; color: var(--text-muted); line-height: 1.6; }
+    .photo-actions { display: flex; gap: .5rem; margin-top: .6rem; flex-wrap: wrap; }
+
+    /* ---- EDITOR SECTION TABS ---- */
+    .editor-tabs {
+      display: flex; gap: .4rem; flex-wrap: wrap;
+      margin-bottom: 1.5rem; border-bottom: 2px solid var(--border);
+      padding-bottom: .6rem;
+    }
+    .etab {
+      padding: .45rem 1.1rem; border-radius: var(--radius-pill);
+      font-size: .82rem; font-weight: 600; cursor: pointer;
+      border: 1.5px solid var(--border); background: transparent;
+      color: var(--text-muted); transition: var(--transition);
+    }
+    .etab.active, .etab:hover {
+      background: var(--primary); border-color: var(--primary);
+      color: #fff;
+    }
+    .etab-panel { display: none; }
+    .etab-panel.active { display: block; }
+
+    /* ---- TEXTAREA TALL ---- */
+    .tall { min-height: 120px; resize: vertical; }
+
+    /* ---- EDUCATION ENTRY ---- */
+    .edu-entry {
+      background: var(--bg2); border-radius: var(--radius-sm);
+      padding: 1rem; margin-bottom: 1rem;
+      border: 1px solid var(--border);
+    }
+    .edu-entry .form-row { margin-bottom: 0; }
+
+    /* ---- LIVE PREVIEW BADGE ---- */
+    .live-badge {
+      display: inline-flex; align-items: center; gap: .35rem;
+      padding: .25rem .75rem; background: rgba(34,197,94,.12);
+      color: #16a34a; border-radius: var(--radius-pill);
+      font-size: .72rem; font-weight: 700;
+    }
+    .live-badge::before {
+      content: ''; display: block; width: 7px; height: 7px;
+      border-radius: 50%; background: #16a34a;
+      animation: pulse-dot 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.7)} }
+  </style>
+</head>
+<body data-page="maintenance">
+<div class="admin-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">
+        <div class="logo-icon">R</div>
+        <div><span>Raymond Okinyi</span><small>Admin Panel</small></div>
+      </div>
+      <button class="sidebar-close" id="sidebarClose"><i class="fas fa-times"></i></button>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Main</div>
+      <a href="dashboard.html" class="sidebar-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+      <a href="messages.html" class="sidebar-link"><i class="fas fa-envelope"></i> Messages</a>
+      <div class="nav-section-label">CV Management</div>
+      <a href="profile.html" class="sidebar-link"><i class="fas fa-user-edit"></i> Edit Profile</a>
+      <a href="skills.html" class="sidebar-link"><i class="fas fa-chart-bar"></i> Edit Skills</a>
+      <div class="nav-section-label">System</div>
+      <a href="email-setup.html" class="sidebar-link"><i class="fas fa-at"></i> Email Setup</a>
+      <a href="security.html" class="sidebar-link"><i class="fas fa-shield-alt"></i> Security</a>
+      <a href="maintenance.html" class="sidebar-link active"><i class="fas fa-tools"></i> Maintenance</a>
+      <div class="nav-section-label">Navigation</div>
+      <a href="../index.html" class="sidebar-link"><i class="fas fa-eye"></i> View CV</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="user-card">
+        <div class="user-avatar">R</div>
+        <div class="user-info"><strong>Raymond</strong><small>Administrator</small></div>
+        <a href="javascript:void(0)" id="logoutBtn" title="Logout"><i class="fas fa-sign-out-alt"></i></a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="admin-main">
+    <header class="admin-header">
+      <div class="header-left">
+        <button class="sidebar-toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+        <div class="breadcrumb">Admin &rsaquo; <strong>Maintenance &amp; CV Editor</strong></div>
+      </div>
+      <div class="header-right">
+        <a href="../index.html" target="_blank" class="header-btn" title="View CV"><i class="fas fa-external-link-alt"></i></a>
+      </div>
+    </header>
+
+    <div class="admin-content">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">CV <span>Content Editor</span></h1>
+          <p class="page-sub">Make changes here and they reflect instantly on your public CV.</p>
+        </div>
+        <span class="live-badge">Live Sync</span>
+      </div>
+
+      <div class="alert" id="maintAlert"></div>
+
+      <!-- ==============================
+           SECTION 1: PHOTO EDITOR
+      ============================== -->
+      <div class="card" style="margin-bottom:1.5rem;">
+        <div class="card-title"><i class="fas fa-camera"></i> Profile Photo</div>
+
+        <div class="photo-upload-wrap">
+          <div class="photo-preview-box">
+            <img id="photoPreview" src="../images/raymond-profile.jpeg" alt="Profile preview"/>
+            <label for="photoFileInput" class="photo-upload-btn" title="Upload new photo">
+              <i class="fas fa-camera"></i>
+            </label>
+            <input type="file" id="photoFileInput" accept="image/*"/>
+          </div>
+          <div class="photo-upload-info">
+            <h4>Upload a new profile photo</h4>
+            <p>Supported formats: JPG, PNG, WEBP. The photo will appear in the hero section and about section of your CV.</p>
+            <div class="photo-actions">
+              <button class="btn btn-primary btn-sm" id="savePhotoBtn"><i class="fas fa-save"></i> Save Photo</button>
+              <button class="btn btn-outline btn-sm" id="removePhotoBtn"><i class="fas fa-times"></i> Remove Override</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==============================
+           SECTION 2: CONTENT TABS
+      ============================== -->
+      <div class="card">
+        <div class="card-title"><i class="fas fa-edit"></i> CV Content Editor</div>
+
+        <!-- Tab buttons -->
+        <div class="editor-tabs">
+          <button class="etab active" data-tab="tab-personal">👤 Personal</button>
+          <button class="etab" data-tab="tab-bio">📝 Bio &amp; Hero</button>
+          <button class="etab" data-tab="tab-education">🎓 Education</button>
+          <button class="etab" data-tab="tab-contact">📞 Contact</button>
+        </div>
+
+        <!-- TAB: Personal -->
+        <div class="etab-panel active" id="tab-personal">
+          <div class="form-row">
+            <div class="form-group">
+              <label><i class="fas fa-user"></i> Full Name</label>
+              <input type="text" id="mEditName" placeholder="Raymond Okinyi"/>
+            </div>
+            <div class="form-group">
+              <label><i class="fas fa-id-badge"></i> Title / Role</label>
+              <input type="text" id="mEditRole" placeholder="e.g. Diploma in Computer Science Student"/>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label><i class="fas fa-university"></i> Institution</label>
+              <input type="text" id="mEditSchool" placeholder="e.g. NYS Engineering Institute, Nairobi"/>
+            </div>
+            <div class="form-group">
+              <label><i class="fas fa-map-marker-alt"></i> Location</label>
+              <input type="text" id="mEditLocation" placeholder="Nairobi, Kenya"/>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button class="btn btn-primary" id="savePersonalBtn"><i class="fas fa-save"></i> Save Personal Info</button>
+          </div>
+        </div>
+
+        <!-- TAB: Bio & Hero -->
+        <div class="etab-panel" id="tab-bio">
+          <div class="form-group">
+            <label><i class="fas fa-quote-left"></i> Hero Bio (shown under your name on the homepage)</label>
+            <textarea class="tall" id="mEditHeroBio" placeholder="e.g. Diploma in Computer Science student at NYS Engineering Institute..."></textarea>
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-align-left"></i> About Me — Paragraph 1 (Character &amp; discipline)</label>
+            <textarea class="tall" id="mEditAbout1" placeholder="I am Raymond Okinyi..."></textarea>
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-align-left"></i> About Me — Paragraph 2 (NYS &amp; work ethic)</label>
+            <textarea class="tall" id="mEditAbout2" placeholder="Training at NYS..."></textarea>
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-align-left"></i> About Me — Paragraph 3 (Skills &amp; teamwork)</label>
+            <textarea class="tall" id="mEditAbout3" placeholder="I am a fast learner..."></textarea>
+          </div>
+          <div class="form-actions">
+            <button class="btn btn-primary" id="saveBioBtn"><i class="fas fa-save"></i> Save Bio</button>
+          </div>
+        </div>
+
+        <!-- TAB: Education -->
+        <div class="etab-panel" id="tab-education">
+
+          <div class="edu-entry">
+            <div class="card-title" style="font-size:.88rem;margin-bottom:.75rem;">🎓 College / Diploma</div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Qualification</label>
+                <input type="text" id="mEdu1Qual" placeholder="Diploma in Computer Science"/>
+              </div>
+              <div class="form-group">
+                <label>Institution</label>
+                <input type="text" id="mEdu1School" placeholder="NYS Engineering Institute, Nairobi"/>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Year / Period</label>
+                <input type="text" id="mEdu1Year" placeholder="2024 – Present"/>
+              </div>
+              <div class="form-group">
+                <label>Status Badge</label>
+                <input type="text" id="mEdu1Status" placeholder="In Progress"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Description</label>
+              <textarea class="tall" id="mEdu1Desc" placeholder="Enrolled in the Diploma..."></textarea>
+            </div>
+          </div>
+
+          <div class="edu-entry">
+            <div class="card-title" style="font-size:.88rem;margin-bottom:.75rem;">🏫 Secondary School (KCSE)</div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Qualification</label>
+                <input type="text" id="mEdu2Qual" placeholder="Kenya Certificate of Secondary Education"/>
+              </div>
+              <div class="form-group">
+                <label>Institution</label>
+                <input type="text" id="mEdu2School" placeholder="Secondary School, Kenya"/>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Year / Period</label>
+                <input type="text" id="mEdu2Year" placeholder="2019 – 2022"/>
+              </div>
+              <div class="form-group">
+                <label>Grade</label>
+                <input type="text" id="mEdu2Grade" placeholder="Mean Grade: C"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Description</label>
+              <textarea class="tall" id="mEdu2Desc" placeholder="Completed the four-year secondary..."></textarea>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn btn-primary" id="saveEduBtn"><i class="fas fa-save"></i> Save Education</button>
+          </div>
+        </div>
+
+        <!-- TAB: Contact -->
+        <div class="etab-panel" id="tab-contact">
+          <div class="form-row">
+            <div class="form-group">
+              <label><i class="fas fa-envelope"></i> Email Address</label>
+              <input type="email" id="mEditEmail" placeholder="raymondopiyo67@gmail.com"/>
+            </div>
+            <div class="form-group">
+              <label><i class="fas fa-phone"></i> Phone / WhatsApp</label>
+              <input type="tel" id="mEditPhone" placeholder="0795058238"/>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label><i class="fab fa-linkedin"></i> LinkedIn URL</label>
+              <input type="url" id="mEditLinkedin" placeholder="https://linkedin.com/in/..."/>
+            </div>
+            <div class="form-group">
+              <label><i class="fab fa-github"></i> GitHub URL</label>
+              <input type="url" id="mEditGithub" placeholder="https://github.com/..."/>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button class="btn btn-primary" id="saveContactBtn"><i class="fas fa-save"></i> Save Contact Info</button>
+          </div>
+        </div>
+
+      </div><!-- /card -->
+
+      <!-- ==============================
+           SECTION 3: SYSTEM MAINTENANCE
+      ============================== -->
+      <div class="card" style="margin-top:1.5rem;">
+        <div class="card-title"><i class="fas fa-tools"></i> System Maintenance</div>
+        <div class="maintenance-grid">
+
+          <div class="maint-card">
+            <div class="maint-icon" style="background:linear-gradient(135deg,var(--primary),var(--primary-dark));"><i class="fas fa-download"></i></div>
+            <h3>Export / Backup Data</h3>
+            <p>Download a full backup of your CV data including profile, skills, and messages as a JSON file.</p>
+            <button class="btn btn-primary btn-sm" onclick="exportData()"><i class="fas fa-download"></i> Export Data</button>
+          </div>
+
+          <div class="maint-card">
+            <div class="maint-icon" style="background:linear-gradient(135deg,var(--accent),#0f766e);"><i class="fas fa-envelope-open"></i></div>
+            <h3>Clear All Messages</h3>
+            <p>Permanently delete all messages from your inbox. This action cannot be undone.</p>
+            <button class="btn btn-danger btn-sm" onclick="clearMessages()"><i class="fas fa-trash"></i> Clear Messages</button>
+          </div>
+
+          <div class="maint-card">
+            <div class="maint-icon" style="background:linear-gradient(135deg,var(--gold),#d97706);"><i class="fas fa-history"></i></div>
+            <h3>Clear Activity Logs</h3>
+            <p>Remove all admin activity logs, including login history and action records.</p>
+            <button class="btn btn-outline btn-sm" onclick="clearLogs()"><i class="fas fa-eraser"></i> Clear Logs</button>
+          </div>
+
+          <div class="maint-card">
+            <div class="maint-icon" style="background:linear-gradient(135deg,var(--danger),#b91c1c);"><i class="fas fa-sync-alt"></i></div>
+            <h3>Reset CV to Defaults</h3>
+            <p>Reset all profile, photo, education and bio data back to the original default values.</p>
+            <button class="btn btn-danger btn-sm" onclick="resetAllCV()"><i class="fas fa-redo"></i> Reset All CV Data</button>
+          </div>
+
+          <div class="maint-card">
+            <div class="maint-icon" style="background:linear-gradient(135deg,#7c3aed,#5b21b6);"><i class="fas fa-info-circle"></i></div>
+            <h3>System Information</h3>
+            <p>View current system version, storage usage, and application status.</p>
+            <div style="margin-top:.75rem;">
+              <div style="font-size:.8rem;color:var(--text-muted);margin-bottom:.3rem;"><strong>Version:</strong> 2.0.0</div>
+              <div style="font-size:.8rem;color:var(--text-muted);margin-bottom:.3rem;"><strong>Storage:</strong> localStorage</div>
+              <div style="font-size:.8rem;color:var(--text-muted);"><strong>Status:</strong> <span style="color:var(--success);font-weight:600;">● Online</span></div>
+            </div>
+          </div>
+
+          <div class="maint-card">
+            <div class="maint-icon" style="background:linear-gradient(135deg,#0d9488,#0f766e);"><i class="fas fa-print"></i></div>
+            <h3>Print / Download CV</h3>
+            <p>Open a print-friendly version of your CV to save as PDF or print directly.</p>
+            <a href="print-cv.html" class="btn btn-secondary btn-sm" target="_blank"><i class="fas fa-print"></i> Print CV</a>
+          </div>
+
+        </div>
+      </div>
+
+    </div><!-- /admin-content -->
+  </main>
+</div>
+
+<script src="../js/api.js"></script>
+<script src="../js/admin.js"></script>
+<script>
+/* ============================================
+   MAINTENANCE PAGE — CV EDITOR LOGIC
+   ============================================ */
+
+// --- Defaults ---
+const DEFAULTS = {
+  name:     'Raymond Okinyi',
+  role:     'Diploma in Computer Science Student',
+  school:   'NYS Engineering Institute, Nairobi',
+  location: 'Nairobi, Kenya',
+  heroBio:  'Diploma in Computer Science student at NYS Engineering Institute, Nairobi — passionate about networking, web development, graphic design, and building smart digital solutions that make a real-world impact.',
+  about1:   'I am Raymond Okinyi — a young, ambitious, and self-motivated individual with a strong sense of purpose. Growing up, I understood early that success is built on consistency and hard work, values I carry into everything I do.',
+  about2:   'Training at the National Youth Service (NYS) has instilled in me exceptional discipline, punctuality, and a military-grade work ethic. I follow instructions precisely, respect authority, and perform reliably under pressure — qualities that translate directly into professional excellence.',
+  about3:   'I am a fast learner with a genuine curiosity for technology. I take initiative, adapt quickly to new environments, and thrive both independently and as part of a team.',
+  edu1Qual:   'Diploma in Computer Science',
+  edu1School: 'NYS Engineering Institute, Nairobi',
+  edu1Year:   '2024 – Present',
+  edu1Status: 'In Progress',
+  edu1Desc:   'Enrolled in the Diploma in Computer Science programme at NYS Engineering Institute, Nairobi — a rigorous, nationally recognised qualification that blends theory with intensive practical lab work.',
+  edu2Qual:   'Kenya Certificate of Secondary Education (KCSE)',
+  edu2School: 'Secondary School, Kenya',
+  edu2Year:   '2019 – 2022',
+  edu2Grade:  'Mean Grade: C',
+  edu2Desc:   'Completed the four-year secondary education programme under the Kenya National Examinations Council (KNEC) curriculum. Achieved a Mean Grade C at the end of 2022.',
+  email:    'raymondopiyo67@gmail.com',
+  phone:    '0795058238',
+  linkedin: '#',
+  github:   '#',
+};
+
+// --- Load all saved values into forms ---
+function loadEditorForms() {
+  const d = JSON.parse(localStorage.getItem('cv_maint') || '{}');
+  const g = k => d[k] || DEFAULTS[k];
+
+  // Personal
+  setV('mEditName',     g('name'));
+  setV('mEditRole',     g('role'));
+  setV('mEditSchool',   g('school'));
+  setV('mEditLocation', g('location'));
+
+  // Bio
+  setV('mEditHeroBio', g('heroBio'));
+  setV('mEditAbout1',  g('about1'));
+  setV('mEditAbout2',  g('about2'));
+  setV('mEditAbout3',  g('about3'));
+
+  // Education
+  setV('mEdu1Qual',   g('edu1Qual'));
+  setV('mEdu1School', g('edu1School'));
+  setV('mEdu1Year',   g('edu1Year'));
+  setV('mEdu1Status', g('edu1Status'));
+  setV('mEdu1Desc',   g('edu1Desc'));
+  setV('mEdu2Qual',   g('edu2Qual'));
+  setV('mEdu2School', g('edu2School'));
+  setV('mEdu2Year',   g('edu2Year'));
+  setV('mEdu2Grade',  g('edu2Grade'));
+  setV('mEdu2Desc',   g('edu2Desc'));
+
+  // Contact
+  setV('mEditEmail',    g('email'));
+  setV('mEditPhone',    g('phone'));
+  setV('mEditLinkedin', g('linkedin'));
+  setV('mEditGithub',   g('github'));
+
+  // Photo
+  const savedPhoto = localStorage.getItem('cv_photo');
+  if (savedPhoto) document.getElementById('photoPreview').src = savedPhoto;
+}
+
+function saveFields(fields) {
+  const d = JSON.parse(localStorage.getItem('cv_maint') || '{}');
+  fields.forEach(([key, id]) => { d[key] = getV(id); });
+  localStorage.setItem('cv_maint', JSON.stringify(d));
+}
+
+// --- Save Personal ---
+document.getElementById('savePersonalBtn').addEventListener('click', () => {
+  saveFields([
+    ['name', 'mEditName'], ['role', 'mEditRole'],
+    ['school', 'mEditSchool'], ['location', 'mEditLocation']
+  ]);
+  window.showAlert('maintAlert', '✅ Personal info saved! Reload your CV to see changes.', 'success');
+  window.logActivity('CV Editor — Personal', 'Success');
+});
+
+// --- Save Bio ---
+document.getElementById('saveBioBtn').addEventListener('click', () => {
+  saveFields([
+    ['heroBio','mEditHeroBio'],
+    ['about1','mEditAbout1'], ['about2','mEditAbout2'], ['about3','mEditAbout3']
+  ]);
+  window.showAlert('maintAlert', '✅ Bio saved! Reload your CV to see changes.', 'success');
+  window.logActivity('CV Editor — Bio', 'Success');
+});
+
+// --- Save Education ---
+document.getElementById('saveEduBtn').addEventListener('click', () => {
+  saveFields([
+    ['edu1Qual','mEdu1Qual'], ['edu1School','mEdu1School'],
+    ['edu1Year','mEdu1Year'], ['edu1Status','mEdu1Status'], ['edu1Desc','mEdu1Desc'],
+    ['edu2Qual','mEdu2Qual'], ['edu2School','mEdu2School'],
+    ['edu2Year','mEdu2Year'], ['edu2Grade','mEdu2Grade'],  ['edu2Desc','mEdu2Desc']
+  ]);
+  window.showAlert('maintAlert', '✅ Education saved! Reload your CV to see changes.', 'success');
+  window.logActivity('CV Editor — Education', 'Success');
+});
+
+// --- Save Contact ---
+document.getElementById('saveContactBtn').addEventListener('click', () => {
+  saveFields([
+    ['email','mEditEmail'], ['phone','mEditPhone'],
+    ['linkedin','mEditLinkedin'], ['github','mEditGithub']
+  ]);
+  window.showAlert('maintAlert', '✅ Contact info saved! Reload your CV to see changes.', 'success');
+  window.logActivity('CV Editor — Contact', 'Success');
+});
+
+// --- Photo upload ---
+document.getElementById('photoFileInput').addEventListener('change', function() {
+  const file = this.files[0];
+  if (!file) return;
+  if (file.size > 5 * 1024 * 1024) {
+    window.showAlert('maintAlert', '⚠ Image too large. Max 5 MB.', 'error'); return;
+  }
+  const reader = new FileReader();
+  reader.onload = e => {
+    document.getElementById('photoPreview').src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+});
+
+document.getElementById('savePhotoBtn').addEventListener('click', () => {
+  const src = document.getElementById('photoPreview').src;
+  if (src.startsWith('data:')) {
+    localStorage.setItem('cv_photo', src);
+    window.showAlert('maintAlert', '✅ Photo saved! Reload your CV to see the new photo.', 'success');
+    window.logActivity('CV Editor — Photo', 'Success');
+  } else {
+    window.showAlert('maintAlert', 'ℹ Please choose a new photo first.', 'error');
+  }
+});
+
+document.getElementById('removePhotoBtn').addEventListener('click', () => {
+  localStorage.removeItem('cv_photo');
+  document.getElementById('photoPreview').src = '../images/raymond-profile.jpeg';
+  window.showAlert('maintAlert', 'Photo override removed — original photo restored.', 'success');
+});
+
+// --- Reset ALL (overrides resetCV) ---
+window.resetAllCV = function() {
+  if (!confirm('Reset ALL CV editor data (photo, bio, education, contact) to defaults? This cannot be undone.')) return;
+  localStorage.removeItem('cv_maint');
+  localStorage.removeItem('cv_photo');
+  localStorage.removeItem('cv_skills');
+  window.showAlert('maintAlert', '✅ All CV data reset to defaults.', 'success');
+  window.logActivity('CV Full Reset', 'Success');
+  loadEditorForms();
+};
+
+// --- Tab switching ---
+document.querySelectorAll('.etab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.etab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.etab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).classList.add('active');
+  });
+});
+
+// --- Helpers ---
+function setV(id, val) { const el = document.getElementById(id); if (el) el.value = val || ''; }
+function getV(id) { const el = document.getElementById(id); return el ? el.value.trim() : ''; }
+
+// --- Init ---
+// checkAuth() is called by admin.js at DOMContentLoaded — no need to call it again here.
+// Wrap loadEditorForms in DOMContentLoaded to ensure admin.js Auth is ready first.
+document.addEventListener('DOMContentLoaded', () => {
+  loadEditorForms();
+});
+</script>
+</body>
+</html>
+
+

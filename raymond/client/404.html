@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Page Not Found | Raymond Okinyi</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a73e8'/><text y='.9em' font-size='70' x='50' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>R</text></svg>"/>
+  <style>
+    .notfound-page {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 60%, #0f2952 100%);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 2rem;
+    }
+    .notfound-box { max-width: 500px; }
+    .notfound-code {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(5rem, 20vw, 9rem);
+      font-weight: 700; line-height: 1;
+      background: linear-gradient(135deg, #1a73e8, #0d9488);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: .5rem;
+    }
+    .notfound-box h2 {
+      font-size: 1.5rem; font-weight: 700; color: #fff;
+      margin-bottom: .75rem;
+    }
+    .notfound-box p {
+      color: rgba(255,255,255,.65); font-size: .95rem;
+      line-height: 1.7; margin-bottom: 2rem;
+    }
+    .notfound-actions { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+<div class="notfound-page">
+  <div class="notfound-box">
+    <div class="notfound-code">404</div>
+    <h2>Page Not Found</h2>
+    <p>The page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
+    <div class="notfound-actions">
+      <a href="/" class="btn btn-primary"><i class="fas fa-home"></i> Back to CV</a>
+      <a href="/#contact" class="btn btn-outline"><i class="fas fa-envelope"></i> Contact Me</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

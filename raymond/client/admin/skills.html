@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edit Skills | Admin Panel</title>
+  <link rel="stylesheet" href="../css/admin.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body data-page="skills">
+<div class="admin-layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">
+        <div class="logo-icon">R</div>
+        <div><span>Raymond Okinyi</span><small>Admin Panel</small></div>
+      </div>
+      <button class="sidebar-close" id="sidebarClose"><i class="fas fa-times"></i></button>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Main</div>
+      <a href="dashboard.html" class="sidebar-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+      <a href="messages.html" class="sidebar-link"><i class="fas fa-envelope"></i> Messages</a>
+      <div class="nav-section-label">CV Management</div>
+      <a href="profile.html" class="sidebar-link"><i class="fas fa-user-edit"></i> Edit Profile</a>
+      <a href="skills.html" class="sidebar-link active"><i class="fas fa-chart-bar"></i> Edit Skills</a>
+      <div class="nav-section-label">System</div>
+      <a href="email-setup.html" class="sidebar-link"><i class="fas fa-at"></i> Email Setup</a>
+      <a href="security.html" class="sidebar-link"><i class="fas fa-shield-alt"></i> Security</a>
+      <a href="maintenance.html" class="sidebar-link"><i class="fas fa-tools"></i> Maintenance</a>
+      <div class="nav-section-label">Navigation</div>
+      <a href="../index.html" class="sidebar-link"><i class="fas fa-eye"></i> View CV</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="user-card">
+        <div class="user-avatar">R</div>
+        <div class="user-info"><strong>Raymond</strong><small>Administrator</small></div>
+        <a href="javascript:void(0)" id="logoutBtn" title="Logout"><i class="fas fa-sign-out-alt"></i></a>
+      </div>
+    </div>
+  </aside>
+  <main class="admin-main">
+    <header class="admin-header">
+      <div class="header-left">
+        <button class="sidebar-toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+        <div class="breadcrumb">Admin &rsaquo; <strong>Edit Skills</strong></div>
+      </div>
+      <div class="header-right">
+        <a href="../index.html" class="header-btn" title="View CV"><i class="fas fa-external-link-alt"></i></a>
+      </div>
+    </header>
+    <div class="admin-content">
+      <div class="page-header">
+        <h1 class="page-title">Edit <span>Skills</span></h1>
+        <p class="page-sub">Adjust your skill proficiency levels using the sliders.</p>
+      </div>
+      <div class="alert" id="skillsAlert"></div>
+      <div class="card">
+        <div class="card-title"><i class="fas fa-chart-bar"></i> Skill Levels</div>
+        <div class="skill-editor" id="skillEditor">
+          <p style="color:var(--text-muted);">Loading skills...</p>
+        </div>
+        <div class="form-actions" style="margin-top:1.5rem;">
+          <button class="btn btn-primary" id="saveSkillsBtn"><i class="fas fa-save"></i> Save Skills</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/api.js"></script>
+<script src="../js/admin.js"></script>
+</body>
+</html>
+

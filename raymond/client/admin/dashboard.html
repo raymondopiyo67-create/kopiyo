@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard | Admin Panel</title>
+  <link rel="stylesheet" href="../css/admin.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body data-page="dashboard">
+<div class="admin-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">
+        <div class="logo-icon">R</div>
+        <div>
+          <span>Raymond Okinyi</span>
+          <small>Admin Panel</small>
+        </div>
+      </div>
+      <button class="sidebar-close" id="sidebarClose"><i class="fas fa-times"></i></button>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Main</div>
+      <a href="dashboard.html" class="sidebar-link active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+      <a href="messages.html" class="sidebar-link"><i class="fas fa-envelope"></i> Messages <span class="badge" id="msgBadge"></span></a>
+      <div class="nav-section-label">CV Management</div>
+      <a href="profile.html" class="sidebar-link"><i class="fas fa-user-edit"></i> Edit Profile</a>
+      <a href="skills.html" class="sidebar-link"><i class="fas fa-chart-bar"></i> Edit Skills</a>
+      <div class="nav-section-label">System</div>
+      <a href="email-setup.html" class="sidebar-link"><i class="fas fa-at"></i> Email Setup</a>
+      <a href="security.html" class="sidebar-link"><i class="fas fa-shield-alt"></i> Security</a>
+      <a href="maintenance.html" class="sidebar-link"><i class="fas fa-tools"></i> Maintenance</a>
+      <div class="nav-section-label">Navigation</div>
+      <a href="../index.html" class="sidebar-link"><i class="fas fa-eye"></i> View CV</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="user-card">
+        <div class="user-avatar">R</div>
+        <div class="user-info">
+          <strong>Raymond</strong>
+          <small>Administrator</small>
+        </div>
+        <a href="javascript:void(0)" id="logoutBtn" title="Logout"><i class="fas fa-sign-out-alt"></i></a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="admin-main">
+    <header class="admin-header">
+      <div class="header-left">
+        <button class="sidebar-toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+        <div class="breadcrumb">Admin &rsaquo; <strong>Dashboard</strong></div>
+      </div>
+      <div class="header-right">
+        <button class="header-btn theme-toggle-admin" id="adminThemeToggle" title="Toggle dark/light mode">
+          <i class="fas fa-moon"  id="adminMoon"></i>
+          <i class="fas fa-sun"   id="adminSun" style="display:none;"></i>
+        </button>
+        <a href="messages.html" class="header-btn" title="Messages">
+          <i class="fas fa-envelope"></i>
+          <span class="notif-dot"></span>
+        </a>
+        <a href="security.html" class="header-btn" title="Security"><i class="fas fa-shield-alt"></i></a>
+        <a href="../index.html" class="header-btn" title="View CV"><i class="fas fa-external-link-alt"></i></a>
+      </div>
+    </header>
+    <div class="admin-content">
+      <div class="page-header">
+        <h1 class="page-title">Dashboard <span>Overview</span></h1>
+        <p class="page-sub">Welcome back, Raymond! Here's what's happening with your CV.</p>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon blue"><i class="fas fa-eye"></i></div>
+          <div class="stat-info">
+            <div class="num" id="visitCount">0</div>
+            <div class="label">Total Visits</div>
+            <div class="change up"><i class="fas fa-arrow-up"></i> Active</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon green"><i class="fas fa-envelope"></i></div>
+          <div class="stat-info">
+            <div class="num" id="totalMsg">0</div>
+            <div class="label">Total Messages</div>
+            <div class="change up"><i class="fas fa-inbox"></i> Inbox</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon gold"><i class="fas fa-bell"></i></div>
+          <div class="stat-info">
+            <div class="num" id="unreadCount">0</div>
+            <div class="label">Unread Messages</div>
+            <div class="change up"><i class="fas fa-circle"></i> New</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon red"><i class="fas fa-shield-alt"></i></div>
+          <div class="stat-info">
+            <div class="num">100%</div>
+            <div class="label">Security Score</div>
+            <div class="change up"><i class="fas fa-lock"></i> Secure</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dashboard Grid -->
+      <div class="dashboard-grid">
+        <div class="panel">
+          <div class="panel-header">
+            <h3><i class="fas fa-envelope" style="color:var(--primary);margin-right:.4rem;"></i> Recent Messages</h3>
+            <a href="messages.html" class="panel-action">View All</a>
+          </div>
+          <div class="panel-body" style="padding:0;overflow-x:auto;">
+            <table class="msg-table">
+              <thead>
+                <tr>
+                  <th>Sender</th>
+                  <th>Subject</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="recentMsgs"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h3><i class="fas fa-bolt" style="color:var(--gold);margin-right:.4rem;"></i> Quick Actions</h3>
+          </div>
+          <div class="panel-body">
+            <div class="quick-actions">
+              <a href="messages.html" class="quick-action-btn">
+                <div class="qa-icon blue"><i class="fas fa-envelope"></i></div>
+                <div class="qa-text"><strong>View Messages</strong><small>Read & reply to messages</small></div>
+                <i class="fas fa-chevron-right"></i>
+              </a>
+              <a href="profile.html" class="quick-action-btn">
+                <div class="qa-icon green"><i class="fas fa-user-edit"></i></div>
+                <div class="qa-text"><strong>Edit Profile</strong><small>Update your CV info</small></div>
+                <i class="fas fa-chevron-right"></i>
+              </a>
+              <a href="skills.html" class="quick-action-btn">
+                <div class="qa-icon gold"><i class="fas fa-chart-bar"></i></div>
+                <div class="qa-text"><strong>Edit Skills</strong><small>Update skill levels</small></div>
+                <i class="fas fa-chevron-right"></i>
+              </a>
+              <a href="security.html" class="quick-action-btn">
+                <div class="qa-icon red"><i class="fas fa-shield-alt"></i></div>
+                <div class="qa-text"><strong>Security</strong><small>Change password & logs</small></div>
+                <i class="fas fa-chevron-right"></i>
+              </a>
+              <a href="maintenance.html" class="quick-action-btn">
+                <div class="qa-icon purple"><i class="fas fa-tools"></i></div>
+                <div class="qa-text"><strong>Maintenance</strong><small>Backup & reset data</small></div>
+                <i class="fas fa-chevron-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../js/api.js"></script>
+<script src="../js/admin.js"></script>
+</body>
+</html>
+

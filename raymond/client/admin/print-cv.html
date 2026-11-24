@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Raymond Okinyi — Curriculum Vitae</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Poppins',sans-serif;background:#f0f4f8;color:#1e293b;}
+    .print-wrap{max-width:800px;margin:2rem auto;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.12);}
+    .cv-header{background:linear-gradient(135deg,#0f172a,#1e3a5f);color:#fff;padding:2.5rem 2rem;display:flex;gap:2rem;align-items:center;}
+    .cv-avatar{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,#1a73e8,#0d9488);display:flex;align-items:center;justify-content:center;font-size:2.2rem;color:#fff;font-weight:800;flex-shrink:0;}
+    .cv-title h1{font-size:1.8rem;font-weight:800;}
+    .cv-title p{color:rgba(255,255,255,.75);font-size:.9rem;margin-top:.3rem;}
+    .cv-contacts{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:.75rem;}
+    .cv-contacts span{font-size:.78rem;color:rgba(255,255,255,.8);display:flex;align-items:center;gap:.35rem;}
+    .cv-body{display:grid;grid-template-columns:1fr 1.6fr;gap:0;}
+    .cv-sidebar{background:#f8fafc;padding:1.5rem;border-right:1px solid #e2e8f0;}
+    .cv-main{padding:1.5rem;}
+    .cv-section{margin-bottom:1.5rem;}
+    .cv-section h2{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#1a73e8;border-bottom:2px solid #1a73e8;padding-bottom:.35rem;margin-bottom:1rem;}
+    .skill-row{margin-bottom:.6rem;}
+    .skill-row label{font-size:.78rem;font-weight:600;color:#1e293b;display:flex;justify-content:space-between;margin-bottom:.25rem;}
+    .skill-bar{height:6px;background:#e2e8f0;border-radius:3px;overflow:hidden;}
+    .skill-fill{height:100%;background:linear-gradient(90deg,#1a73e8,#0d9488);border-radius:3px;}
+    .chip-list{display:flex;flex-wrap:wrap;gap:.4rem;}
+    .chip{background:#e8f0fe;color:#1a73e8;padding:.25rem .65rem;border-radius:20px;font-size:.72rem;font-weight:600;}
+    .edu-item{margin-bottom:1rem;padding-left:.8rem;border-left:3px solid #1a73e8;}
+    .edu-item h4{font-size:.85rem;font-weight:700;color:#0f172a;}
+    .edu-item p{font-size:.75rem;color:#64748b;}
+    .edu-item span{font-size:.72rem;color:#1a73e8;font-weight:600;}
+    .exp-item{margin-bottom:1rem;}
+    .exp-item h4{font-size:.85rem;font-weight:700;color:#0f172a;}
+    .exp-item p{font-size:.78rem;color:#64748b;line-height:1.6;}
+    .contact-row{font-size:.8rem;color:#334155;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem;}
+    .cv-footer{text-align:center;padding:1rem;background:#f8fafc;border-top:1px solid #e2e8f0;font-size:.75rem;color:#94a3b8;}
+    @media print{
+      body{background:#fff;}
+      .print-wrap{box-shadow:none;border-radius:0;margin:0;}
+      .no-print{display:none!important;}
+    }
+    .no-print{text-align:center;padding:1rem;background:#1a73e8;}
+    .no-print button{padding:.65rem 1.6rem;background:#fff;color:#1a73e8;border:none;border-radius:8px;font-weight:700;font-size:.88rem;cursor:pointer;margin:0 .4rem;}
+  </style>
+</head>
+<body>
+<div class="no-print">
+  <button onclick="window.print()">🖨 Print / Save as PDF</button>
+  <button onclick="window.close()">✕ Close</button>
+</div>
+<div class="print-wrap">
+  <div class="cv-header">
+    <div class="cv-avatar">R</div>
+    <div class="cv-title">
+      <h1>Raymond Okinyi</h1>
+      <p>Diploma in Computer Science | NYS Engineering Institute, Nairobi</p>
+      <div class="cv-contacts">
+        <span>📧 raymondopiyo67@gmail.com</span>
+        <span>📞 0795058238</span>
+        <span>📍 Nairobi, Kenya</span>
+      </div>
+    </div>
+  </div>
+  <div class="cv-body">
+    <div class="cv-sidebar">
+      <div class="cv-section">
+        <h2>Contact</h2>
+        <div class="contact-row">📧 raymondopiyo67@gmail.com</div>
+        <div class="contact-row">📞 0795058238</div>
+        <div class="contact-row">📍 Nairobi, Kenya</div>
+        <div class="contact-row">🏫 NYS Engineering Institute</div>
+      </div>
+      <div class="cv-section">
+        <h2>Skills</h2>
+        <div class="skill-row"><label><span>Networking</span><span>82%</span></label><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
+        <div class="skill-row"><label><span>Graphic Design</span><span>78%</span></label><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
+        <div class="skill-row"><label><span>Computer Architecture</span><span>75%</span></label><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+        <div class="skill-row"><label><span>Operating Systems</span><span>80%</span></label><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+        <div class="skill-row"><label><span>Web Development</span><span>88%</span></label><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+        <div class="skill-row"><label><span>Java Programming</span><span>77%</span></label><div class="skill-bar"><div class="skill-fill" style="width:77%"></div></div></div>
+      </div>
+      <div class="cv-section">
+        <h2>Interests</h2>
+        <div class="chip-list">
+          <span class="chip">Networking</span>
+          <span class="chip">Web Dev</span>
+          <span class="chip">Java</span>
+          <span class="chip">Design</span>
+          <span class="chip">Linux</span>
+          <span class="chip">Cyber Security</span>
+        </div>
+      </div>
+    </div>
+    <div class="cv-main">
+      <div class="cv-section">
+        <h2>Profile</h2>
+        <div class="exp-item">
+          <p>Dedicated and passionate computer science student at NYS Engineering Institute, Nairobi. I thrive at the intersection of technology and creativity, with a strong foundation in networking, graphic design, computer architecture, operating systems, web development, and Java programming.</p>
+        </div>
+      </div>
+      <div class="cv-section">
+        <h2>Education</h2>
+        <div class="edu-item">
+          <span>Current</span>
+          <h4>Diploma in Computer Science</h4>
+          <p>NYS Engineering Institute, Nairobi</p>
+          <p>Networking · Graphic Design · Computer Organisation & Architecture · Operating Systems · Website Development · Java Programming</p>
+        </div>
+        <div class="edu-item">
+          <span>Completed</span>
+          <h4>Kenya Certificate of Secondary Education (KCSE)</h4>
+          <p>Secondary School, Kenya</p>
+          <p>Mathematics · Sciences · Computer Studies · English</p>
+        </div>
+      </div>
+      <div class="cv-section">
+        <h2>Key Competencies</h2>
+        <div class="exp-item">
+          <h4>Networking & Infrastructure</h4>
+          <p>Network setup, configuration, troubleshooting, LAN/WAN design, TCP/IP, Cisco Packet Tracer.</p>
+        </div>
+        <div class="exp-item">
+          <h4>Web Development</h4>
+          <p>Responsive HTML5/CSS3/JavaScript websites, UI/UX design, cross-device compatibility.</p>
+        </div>
+        <div class="exp-item">
+          <h4>Java Programming</h4>
+          <p>OOP principles, data structures, algorithms, desktop application development.</p>
+        </div>
+        <div class="exp-item">
+          <h4>Graphic Design</h4>
+          <p>Visual communication, branding, digital media creation, creative design solutions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cv-footer">
+    Raymond Okinyi · raymondopiyo67@gmail.com · 0795058238 · Nairobi, Kenya
+  </div>
+</div>
+</body>
+</html>
+
+

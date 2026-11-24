@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Login | Raymond Okinyi CV</title>
+  <link rel="stylesheet" href="../css/admin.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+<div class="login-page">
+  <div class="login-bg-shape s1"></div>
+  <div class="login-bg-shape s2"></div>
+  <div class="login-card">
+    <div class="login-logo">
+      <div class="logo-icon">R</div>
+      <div>
+        <h2>Raymond Okinyi</h2>
+        <p>Digital CV Admin Panel</p>
+      </div>
+    </div>
+    <h3 class="login-title">Welcome Back 👋</h3>
+    <p class="login-sub">Sign in to manage your CV and messages.</p>
+    <form class="login-form" id="loginForm" novalidate>
+      <div class="form-group">
+        <label for="adminUser"><i class="fas fa-user"></i> Username</label>
+        <input type="text" id="adminUser" placeholder="Enter username" autocomplete="username" required aria-required="true"/>
+      </div>
+      <div class="form-group">
+        <label for="adminPass"><i class="fas fa-lock"></i> Password</label>
+        <div class="password-wrap">
+          <input type="password" id="adminPass" placeholder="Enter password" autocomplete="current-password" required aria-required="true"/>
+          <button type="button" class="toggle-pass" id="togglePassBtn" aria-label="Show or hide password">
+            <i class="fas fa-eye" id="togglePassIcon"></i>
+          </button>
+        </div>
+      </div>
+      <button type="submit" class="login-btn"><i class="fas fa-sign-in-alt"></i> Sign In</button>
+      <div class="login-err" id="loginErr" role="alert" aria-live="polite"></div>
+    </form>
+    <p class="login-hint">
+      <a href="../index.html"><i class="fas fa-arrow-left"></i> Back to CV</a>
+    </p>
+  </div>
+</div>
+<script src="../js/api.js"></script>
+<script src="../js/admin.js"></script>
+<script>
+  const passInput   = document.getElementById('adminPass');
+  const toggleBtn   = document.getElementById('togglePassBtn');
+  const toggleIcon  = document.getElementById('togglePassIcon');
+
+  toggleBtn.addEventListener('click', () => {
+    const isHidden = passInput.type === 'password';
+    passInput.type          = isHidden ? 'text' : 'password';
+    toggleIcon.className    = isHidden ? 'fas fa-eye-slash' : 'fas fa-eye';
+    toggleBtn.setAttribute('aria-label', isHidden ? 'Hide password' : 'Show password');
+    // Keep focus on the input after clicking the icon
+    passInput.focus();
+  });
+</script>
+</body>
+</html>
+

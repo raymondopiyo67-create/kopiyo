@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Email Setup | Admin Panel</title>
+  <link rel="stylesheet" href="../css/admin.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    .steps-list { counter-reset: step; display: flex; flex-direction: column; gap: 1.2rem; margin-bottom: 1.5rem; }
+    .step {
+      display: flex; gap: 1rem; align-items: flex-start;
+      background: var(--bg2); border-radius: var(--radius-sm);
+      padding: 1rem 1.2rem; border: 1px solid var(--border);
+    }
+    .step-num {
+      counter-increment: step;
+      min-width: 32px; height: 32px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff; font-size: .82rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-num::after { content: counter(step); }
+    .step-body h4 { font-size: .88rem; font-weight: 700; color: var(--dark); margin-bottom: .3rem; }
+    .step-body p  { font-size: .80rem; color: var(--text-muted); line-height: 1.65; margin: 0; }
+    .step-body a  { color: var(--primary); font-weight: 600; }
+    .step-body code {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 4px; padding: .1rem .4rem;
+      font-family: monospace; font-size: .82rem; color: var(--dark);
+    }
+    .template-box {
+      background: var(--dark); color: #e2e8f0; border-radius: var(--radius-sm);
+      padding: 1rem 1.2rem; font-family: monospace; font-size: .8rem;
+      line-height: 1.7; overflow-x: auto; margin-top: .5rem;
+      white-space: pre-wrap; border: 1px solid rgba(255,255,255,.08);
+    }
+    .status-dot {
+      display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+      margin-right: .4rem; vertical-align: middle;
+    }
+    .status-dot.ok  { background: var(--success); }
+    .status-dot.bad { background: var(--danger); }
+    .keys-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media(max-width:600px){ .keys-grid{ grid-template-columns:1fr; } }
+  </style>
+</head>
+<body data-page="email-setup">
+<div class="admin-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">
+        <div class="logo-icon">R</div>
+        <div><span>Raymond Okinyi</span><small>Admin Panel</small></div>
+      </div>
+      <button class="sidebar-close" id="sidebarClose"><i class="fas fa-times"></i></button>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Main</div>
+      <a href="dashboard.html"   class="sidebar-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+      <a href="messages.html"    class="sidebar-link"><i class="fas fa-envelope"></i> Messages</a>
+      <div class="nav-section-label">CV Management</div>
+      <a href="profile.html"     class="sidebar-link"><i class="fas fa-user-edit"></i> Edit Profile</a>
+      <a href="skills.html"      class="sidebar-link"><i class="fas fa-chart-bar"></i> Edit Skills</a>
+      <div class="nav-section-label">System</div>
+      <a href="email-setup.html" class="sidebar-link active"><i class="fas fa-at"></i> Email Setup</a>
+      <a href="security.html"    class="sidebar-link"><i class="fas fa-shield-alt"></i> Security</a>
+      <a href="maintenance.html" class="sidebar-link"><i class="fas fa-tools"></i> Maintenance</a>
+      <div class="nav-section-label">Navigation</div>
+      <a href="../index.html"    class="sidebar-link"><i class="fas fa-eye"></i> View CV</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="user-card">
+        <div class="user-avatar">R</div>
+        <div class="user-info"><strong>Raymond</strong><small>Administrator</small></div>
+        <a href="javascript:void(0)" id="logoutBtn" title="Logout"><i class="fas fa-sign-out-alt"></i></a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="admin-main">
+    <header class="admin-header">
+      <div class="header-left">
+        <button class="sidebar-toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+        <div class="breadcrumb">Admin &rsaquo; <strong>Email Setup</strong></div>
+      </div>
+      <div class="header-right">
+        <a href="../index.html" target="_blank" class="header-btn" title="View CV"><i class="fas fa-external-link-alt"></i></a>
+      </div>
+    </header>
+
+    <div class="admin-content">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Email <span>Setup</span></h1>
+          <p class="page-sub">Connect EmailJS so contact form messages are delivered to your inbox — and visitors get an auto-reply.</p>
+        </div>
+        <div id="configStatus" style="font-size:.82rem;font-weight:600;color:var(--text-muted);">
+          <span class="status-dot bad" id="statusDot"></span>
+          <span id="statusText">Not configured</span>
+        </div>
+      </div>
+
+      <div class="alert" id="setupAlert"></div>
+
+      <!-- ===== STEP-BY-STEP GUIDE ===== -->
+      <div class="card" style="margin-bottom:1.5rem;">
+        <div class="card-title"><i class="fas fa-list-ol"></i> Setup Guide (one-time, 5 minutes)</div>
+
+        <div class="steps-list">
+          <div class="step">
+            <div class="step-num"></div>
+            <div class="step-body">
+              <h4>Create a free EmailJS account</h4>
+              <p>Go to <a href="https://www.emailjs.com" target="_blank">emailjs.com</a> and sign up for a free account. The free plan allows 200 emails/month — more than enough for a CV contact form.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num"></div>
+            <div class="step-body">
+              <h4>Add an Email Service (connect your Gmail)</h4>
+              <p>In the EmailJS dashboard go to <strong>Email Services → Add New Service</strong>. Choose <strong>Gmail</strong>, click <strong>Connect Account</strong>, and authorise with your Google account (<code>raymondopiyo67@gmail.com</code>). Copy the <strong>Service ID</strong> (looks like <code>service_xxxxxxx</code>).</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num"></div>
+            <div class="step-body">
+              <h4>Create Template 1 — "Message to Raymond" (notification to you)</h4>
+              <p>Go to <strong>Email Templates → Create New Template</strong>. Use the content below, then save and copy the <strong>Template ID</strong> (<code>template_xxxxxxx</code>).</p>
+              <div class="template-box">Subject: New CV Message: {{subject}}
+
+To: raymondopiyo67@gmail.com
+
+You have a new message from your CV contact form:
+
+Name:    {{from_name}}
+Email:   {{reply_to}}
+Subject: {{subject}}
+
+Message:
+{{message}}
+
+---
+Reply directly to this email to respond to {{from_name}}.</div>
+              <p style="margin-top:.5rem;">In the template settings set <strong>To Email</strong> to <code>raymondopiyo67@gmail.com</code> and <strong>Reply To</strong> to <code>{{reply_to}}</code>.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num"></div>
+            <div class="step-body">
+              <h4>Create Template 2 — "Auto-Reply to Visitor" (confirmation to sender)</h4>
+              <p>Create a second template. Set <strong>To Email</strong> to <code>{{to_email}}</code>. This is the automatic reply the visitor receives after submitting the form.</p>
+              <div class="template-box">Subject: Thanks for reaching out, {{to_name}}!
+
+Hi {{to_name}},
+
+Thank you for contacting me through my CV. I have received your message
+regarding "{{subject}}" and will get back to you as soon as possible.
+
+Your message:
+{{message}}
+
+Best regards,
+Raymond Okinyi
+Diploma in Computer Science | NYS Engineering Institute, Nairobi
+📧 raymondopiyo67@gmail.com | 📞 0795058238</div>
+              <p style="margin-top:.5rem;">Copy the <strong>Template ID</strong> for this one too.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num"></div>
+            <div class="step-body">
+              <h4>Get your Public Key</h4>
+              <p>Go to <strong>Account → General</strong> in the EmailJS dashboard. Copy your <strong>Public Key</strong> (looks like <code>aBcDeFgHiJkLmNoPq</code>).</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num"></div>
+            <div class="step-body">
+              <h4>Paste your keys below and save</h4>
+              <p>Fill in the form below with the three values you copied and click <strong>Save Keys</strong>. The contact form on your CV will immediately start sending real emails.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== KEYS FORM ===== -->
+      <div class="card">
+        <div class="card-title"><i class="fas fa-key"></i> Your EmailJS Keys</div>
+
+        <div class="keys-grid">
+          <div class="form-group">
+            <label><i class="fas fa-fingerprint"></i> Public Key</label>
+            <input type="text" id="ejsPublicKey" placeholder="e.g. aBcDeFgHiJkLmNoPq" autocomplete="off"/>
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-server"></i> Service ID</label>
+            <input type="text" id="ejsServiceId" placeholder="e.g. service_xxxxxxx" autocomplete="off"/>
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-paper-plane"></i> Template ID — Notify Raymond</label>
+            <input type="text" id="ejsTemplateTo" placeholder="e.g. template_xxxxxxx" autocomplete="off"/>
+          </div>
+          <div class="form-group">
+            <label><i class="fas fa-reply"></i> Template ID — Auto-Reply to Visitor</label>
+            <input type="text" id="ejsTemplateAr" placeholder="e.g. template_xxxxxxx (optional)" autocomplete="off"/>
+          </div>
+        </div>
+
+        <div class="form-actions" style="margin-top:.5rem;">
+          <button class="btn btn-primary" id="saveKeysBtn"><i class="fas fa-save"></i> Save Keys</button>
+          <button class="btn btn-outline" id="testEmailBtn"><i class="fas fa-vial"></i> Send Test Email</button>
+          <button class="btn btn-danger btn-sm" id="clearKeysBtn"><i class="fas fa-trash"></i> Clear Keys</button>
+        </div>
+
+        <div id="testResult" style="margin-top:1rem;font-size:.82rem;"></div>
+      </div>
+
+      <!-- ===== HOW IT WORKS SUMMARY ===== -->
+      <div class="card" style="margin-top:1.5rem;border-left:4px solid var(--primary);">
+        <div class="card-title" style="border:none;padding:0;margin-bottom:.75rem;"><i class="fas fa-info-circle"></i> How it works after setup</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;">
+          <div style="background:var(--bg2);border-radius:var(--radius-sm);padding:1rem;text-align:center;">
+            <i class="fas fa-user" style="font-size:1.6rem;color:var(--primary);margin-bottom:.5rem;display:block;"></i>
+            <strong style="font-size:.85rem;">Visitor fills form</strong>
+            <p style="font-size:.75rem;color:var(--text-muted);margin-top:.3rem;">Name, email, subject and message on your CV site.</p>
+          </div>
+          <div style="background:var(--bg2);border-radius:var(--radius-sm);padding:1rem;text-align:center;">
+            <i class="fas fa-paper-plane" style="font-size:1.6rem;color:var(--accent);margin-bottom:.5rem;display:block;"></i>
+            <strong style="font-size:.85rem;">EmailJS delivers it</strong>
+            <p style="font-size:.75rem;color:var(--text-muted);margin-top:.3rem;">The message arrives in your Gmail inbox with the sender's email as reply-to.</p>
+          </div>
+          <div style="background:var(--bg2);border-radius:var(--radius-sm);padding:1rem;text-align:center;">
+            <i class="fas fa-reply" style="font-size:1.6rem;color:var(--gold);margin-bottom:.5rem;display:block;"></i>
+            <strong style="font-size:.85rem;">Visitor gets auto-reply</strong>
+            <p style="font-size:.75rem;color:var(--text-muted);margin-top:.3rem;">They receive a confirmation email from your Gmail immediately.</p>
+          </div>
+          <div style="background:var(--bg2);border-radius:var(--radius-sm);padding:1rem;text-align:center;">
+            <i class="fas fa-envelope-open-text" style="font-size:1.6rem;color:var(--danger);margin-bottom:.5rem;display:block;"></i>
+            <strong style="font-size:.85rem;">You reply via Gmail</strong>
+            <p style="font-size:.75rem;color:var(--text-muted);margin-top:.3rem;">Hit Reply in Gmail — your response goes straight to the visitor's inbox.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script src="../js/api.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="../js/admin.js"></script>
+<script>
+checkAuth();
+
+const inputs = {
+  publicKey:  document.getElementById('ejsPublicKey'),
+  serviceId:  document.getElementById('ejsServiceId'),
+  templateTo: document.getElementById('ejsTemplateTo'),
+  templateAr: document.getElementById('ejsTemplateAr'),
+};
+
+// Load saved keys
+function loadKeys() {
+  inputs.publicKey.value  = localStorage.getItem('ejs_public_key')  || '';
+  inputs.serviceId.value  = localStorage.getItem('ejs_service_id')  || '';
+  inputs.templateTo.value = localStorage.getItem('ejs_template_to') || '';
+  inputs.templateAr.value = localStorage.getItem('ejs_template_ar') || '';
+  updateStatus();
+}
+
+function updateStatus() {
+  const configured = localStorage.getItem('ejs_public_key') &&
+                     localStorage.getItem('ejs_service_id') &&
+                     localStorage.getItem('ejs_template_to');
+  document.getElementById('statusDot').className  = 'status-dot ' + (configured ? 'ok' : 'bad');
+  document.getElementById('statusText').textContent = configured ? 'Configured ✓' : 'Not configured';
+}
+
+// Save keys
+document.getElementById('saveKeysBtn').addEventListener('click', () => {
+  const pk = inputs.publicKey.value.trim();
+  const si = inputs.serviceId.value.trim();
+  const tt = inputs.templateTo.value.trim();
+  const ta = inputs.templateAr.value.trim();
+
+  if (!pk || !si || !tt) {
+    showAlert('setupAlert', 'Please fill in Public Key, Service ID and the first Template ID.', 'error');
+    return;
+  }
+  localStorage.setItem('ejs_public_key',  pk);
+  localStorage.setItem('ejs_service_id',  si);
+  localStorage.setItem('ejs_template_to', tt);
+  if (ta) localStorage.setItem('ejs_template_ar', ta);
+  else    localStorage.removeItem('ejs_template_ar');
+
+  updateStatus();
+  showAlert('setupAlert', '✅ Keys saved! Your contact form will now send real emails.', 'success');
+  logActivity('EmailJS Keys Saved', 'Success');
+});
+
+// Clear keys
+document.getElementById('clearKeysBtn').addEventListener('click', () => {
+  if (!confirm('Remove all EmailJS keys? The form will fall back to local storage only.')) return;
+  ['ejs_public_key','ejs_service_id','ejs_template_to','ejs_template_ar'].forEach(k => localStorage.removeItem(k));
+  loadKeys();
+  showAlert('setupAlert', 'Keys cleared.', 'success');
+});
+
+// Test email
+document.getElementById('testEmailBtn').addEventListener('click', async () => {
+  const pk = inputs.publicKey.value.trim() || localStorage.getItem('ejs_public_key');
+  const si = inputs.serviceId.value.trim() || localStorage.getItem('ejs_service_id');
+  const tt = inputs.templateTo.value.trim() || localStorage.getItem('ejs_template_to');
+
+  if (!pk || !si || !tt) {
+    showAlert('setupAlert', 'Save your keys first before testing.', 'error');
+    return;
+  }
+
+  const btn = document.getElementById('testEmailBtn');
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending…';
+  document.getElementById('testResult').textContent = '';
+
+  try {
+    emailjs.init({ publicKey: pk });
+    await emailjs.send(si, tt, {
+      from_name: 'Admin Test',
+      reply_to:  'test@example.com',
+      subject:   'EmailJS Test from Admin Panel',
+      message:   'This is a test message from your CV admin panel. Email delivery is working correctly.',
+      to_name:   'Raymond Okinyi',
+      to_email:  'raymondopiyo67@gmail.com',
+    });
+    document.getElementById('testResult').innerHTML =
+      '<span style="color:var(--success);font-weight:600;"><i class="fas fa-check-circle"></i> Test email sent successfully! Check your Gmail inbox.</span>';
+    logActivity('EmailJS Test', 'Success');
+  } catch (err) {
+    document.getElementById('testResult').innerHTML =
+      '<span style="color:var(--danger);font-weight:600;"><i class="fas fa-times-circle"></i> Failed: ' + (err.text || JSON.stringify(err)) + '</span>';
+    logActivity('EmailJS Test', 'Failed');
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = '<i class="fas fa-vial"></i> Send Test Email';
+  }
+});
+
+loadKeys();
+</script>
+</body>
+</html>
+

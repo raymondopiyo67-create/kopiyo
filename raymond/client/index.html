@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- ── SEO ── -->
+  <title>Raymond Okinyi | Computer Science Student — Nairobi, Kenya</title>
+  <meta name="description" content="Raymond Okinyi — Diploma in Computer Science student at NYS Engineering Institute, Nairobi. Skilled in networking, web development, graphic design, Java programming and operating systems."/>
+  <meta name="keywords" content="Raymond Okinyi, Computer Science, NYS Engineering Institute, Nairobi, networking, web development, Java, graphic design, digital CV"/>
+  <meta name="author" content="Raymond Okinyi"/>
+
+  <!-- ── Open Graph (WhatsApp / Facebook previews) ── -->
+  <meta property="og:type"        content="website"/>
+  <meta property="og:title"       content="Raymond Okinyi | Digital CV"/>
+  <meta property="og:description" content="Diploma in Computer Science student at NYS Engineering Institute, Nairobi — passionate about networking, web development & graphic design."/>
+  <meta property="og:image"       content="images/raymond-profile.jpeg"/>
+  <meta property="og:url"         content="https://your-domain.com"/>
+
+  <!-- ── Twitter Card ── -->
+  <meta name="twitter:card"        content="summary_large_image"/>
+  <meta name="twitter:title"       content="Raymond Okinyi | Digital CV"/>
+  <meta name="twitter:description" content="Diploma in Computer Science student at NYS Engineering Institute, Nairobi."/>
+  <meta name="twitter:image"       content="images/raymond-profile.jpeg"/>
+
+  <!-- ── Canonical & Robots ── -->
+  <link rel="canonical" href="https://your-domain.com"/>
+  <meta name="robots" content="index, follow"/>
+
+  <!-- ── Favicon (inline SVG data URI) ── -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a73e8'/><text y='.9em' font-size='70' x='50' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>R</text></svg>"/>
+
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- ========== PRELOADER ========== -->
+<div id="preloader" role="status" aria-label="Loading">
+  <div class="loader-ring">
+    <span></span><span></span><span></span>
+    <div class="loader-text">RO</div>
+  </div>
+</div>
+
+<!-- ========== NAVBAR ========== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+
+    <!-- LOGO -->
+    <a href="#hero" class="logo">
+      <span class="logo-icon">R</span>
+      <span class="logo-text">aymond <em>Okinyi</em></span>
+    </a>
+
+    <!-- THEME TOGGLE + HAMBURGER -->
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+        <i class="fas fa-moon"  id="themeIconMoon"></i>
+        <i class="fas fa-sun"   id="themeIconSun"  style="display:none;"></i>
+      </button>
+      <button type="button" class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#hero"            class="drop-link"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="#about"           class="drop-link"><i class="fas fa-user"></i> About</a></li>
+        <li><a href="#skills"          class="drop-link"><i class="fas fa-code"></i> Skills</a></li>
+        <li><a href="#education"       class="drop-link"><i class="fas fa-graduation-cap"></i> Education</a></li>
+        <li><a href="#projects"        class="drop-link"><i class="fas fa-project-diagram"></i> Projects</a></li>
+        <li><a href="#certificates"    class="drop-link"><i class="fas fa-certificate"></i> Certificates</a></li>
+        <li><a href="#contact"         class="drop-link"><i class="fas fa-envelope"></i> Contact</a></li>
+        <li class="nav-separator"></li>
+        <li><a href="admin/login.html" class="drop-link drop-admin"><i class="fas fa-lock"></i> Admin</a></li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- ========== HERO SECTION ========== -->
+<section class="hero" id="hero">
+  <div class="hero-bg-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
+  <div class="hero-container">
+    <div class="hero-text" data-aos="fade-right">
+      <div class="available-badge">
+        <span class="available-dot"></span> Available for Internship &amp; Opportunities
+      </div>
+      <p class="hero-greeting">Hello, I'm</p>
+      <h1 class="hero-name">Raymond <span>Okinyi</span></h1>
+      <div class="hero-roles">
+        <span class="role-text" id="roleText"></span><span class="cursor">|</span>
+      </div>
+      <p class="hero-bio">
+        Diploma in Computer Science student at <strong>NYS Engineering Institute, Nairobi</strong> —
+        passionate about networking, web development, graphic design, and building smart digital solutions
+        that make a real-world impact.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Contact Me</a>
+        <a href="#about"   class="btn btn-outline"><i class="fas fa-user"></i> Learn More</a>
+      </div>
+      <div class="hero-socials">
+        <a href="mailto:raymondopiyo67@gmail.com" title="Email" aria-label="Email Raymond Okinyi"><i class="fas fa-envelope"></i></a>
+        <a href="tel:+254795058238"               title="Phone" aria-label="Call Raymond Okinyi"><i class="fas fa-phone"></i></a>
+        <a href="https://linkedin.com/in/raymond-okinyi" title="LinkedIn" aria-label="Raymond Okinyi on LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/raymond-okinyi"      title="GitHub"   aria-label="Raymond Okinyi on GitHub"   target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+
+    <!-- HERO VISUAL with real photo -->
+    <div class="hero-visual" data-aos="fade-left">
+      <div class="profile-frame">
+        <div class="profile-img-wrapper">
+          <img
+            src="images/raymond-profile.jpeg"
+            alt="Raymond Okinyi — NYS Engineering Institute"
+            class="profile-img-real"
+          />
+          <div class="profile-ring ring-1"></div>
+          <div class="profile-ring ring-2"></div>
+          <div class="profile-ring ring-3"></div>
+        </div>
+        <div class="stat-badge badge-top">
+          <i class="fas fa-award"></i>
+          <div><span>Diploma</span><strong>CS — NYS</strong></div>
+        </div>
+        <div class="stat-badge badge-bottom">
+          <i class="fas fa-map-marker-alt"></i>
+          <div><span>Based in</span><strong>Nairobi, KE</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <div class="scroll-dot"></div>
+  </div>
+</section>
+
+<!-- ========== ABOUT SECTION ========== -->
+<section class="about section" id="about">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Who I Am</span>
+      <h2 class="section-title">About <span>Me</span></h2>
+      <div class="title-bar"></div>
+    </div>
+    <div class="about-grid">
+
+      <!-- LEFT: real photo + chips -->
+      <div class="about-left" data-aos="fade-right">
+        <div class="about-card">
+          <div class="about-img-box">
+            <img
+              src="images/raymond-profile.jpeg"
+              alt="Raymond Okinyi"
+              class="about-img-real"
+            />
+          </div>
+          <div class="info-chips" style="margin-top:1rem;">
+            <span class="chip"><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</span>
+            <span class="chip"><i class="fas fa-university"></i> NYS Engineering Institute</span>
+            <span class="chip"><i class="fas fa-graduation-cap"></i> Diploma in Computer Science</span>
+            <span class="chip"><i class="fas fa-envelope"></i> raymondopiyo67@gmail.com</span>
+            <span class="chip"><i class="fas fa-phone"></i> 0795058238</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: personal profile -->
+      <div class="about-right" data-aos="fade-left">
+        <h3>Disciplined, Driven &amp; Ready to Deliver</h3>
+
+        <p>
+          I am <strong>Raymond Okinyi</strong> — a young, ambitious, and self-motivated individual
+          with a strong sense of purpose. Growing up, I understood early that success is built on
+          consistency and hard work, values I carry into everything I do.
+        </p>
+
+        <p>
+          Training at the <strong>National Youth Service (NYS)</strong> has instilled in me
+          exceptional discipline, punctuality, and a paramilitary-grade work ethic. I follow
+          instructions precisely, respect authority, and perform reliably under pressure —
+          qualities that translate directly into professional excellence.
+        </p>
+
+        <p>
+          I am a <strong>fast learner</strong> with a genuine curiosity for technology. I take
+          initiative, adapt quickly to new environments, and thrive both independently and
+          as part of a team. My communication skills, attention to detail, and commitment
+          to quality make me someone colleagues and employers can count on.
+        </p>
+
+        <!-- Personal trait cards -->
+        <div class="trait-grid">
+          <div class="trait-card">
+            <i class="fas fa-shield-alt"></i>
+            <span>Disciplined</span>
+          </div>
+          <div class="trait-card">
+            <i class="fas fa-bolt"></i>
+            <span>Fast Learner</span>
+          </div>
+          <div class="trait-card">
+            <i class="fas fa-users"></i>
+            <span>Team Player</span>
+          </div>
+          <div class="trait-card">
+            <i class="fas fa-clock"></i>
+            <span>Punctual</span>
+          </div>
+          <div class="trait-card">
+            <i class="fas fa-bullseye"></i>
+            <span>Goal-Oriented</span>
+          </div>
+          <div class="trait-card">
+            <i class="fas fa-handshake"></i>
+            <span>Dependable</span>
+          </div>
+        </div>
+
+        <div class="about-stats">
+          <div class="stat-item">
+            <div class="stat-num">NYS</div>
+            <div class="stat-label">Trained</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">3+</div>
+            <div class="stat-label">Projects Done</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">2024</div>
+            <div class="stat-label">Started College</div>
+          </div>
+        </div>
+        <a href="#contact" class="btn btn-primary"><i class="fas fa-comments"></i> Let's Connect</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== SKILLS SECTION ========== -->
+<section class="skills section" id="skills">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Diploma Units &amp; Skills</span>
+      <h2 class="section-title">My <span>Skills</span></h2>
+      <div class="title-bar"></div>
+      <p style="color:var(--text-muted);font-size:.9rem;margin-top:.75rem;max-width:600px;margin-left:auto;margin-right:auto;">
+        Skills acquired through my Diploma in Computer Science at NYS Engineering Institute, Nairobi.
+      </p>
+    </div>
+    <div class="skills-grid">
+
+      <!-- Unit 1: Networking -->
+      <div class="skill-category" data-aos="fade-up" data-delay="0">
+        <div class="skill-icon-wrap"><i class="fas fa-network-wired"></i></div>
+        <h3>Networking &amp; Infrastructure</h3>
+        <p>
+          Gained practical knowledge in designing, configuring, and managing computer networks.
+          Covers LAN/WAN topology, IP addressing (IPv4 &amp; IPv6), subnetting, routing protocols
+          (RIP, OSPF), switching, network security basics, and troubleshooting using tools like
+          Cisco Packet Tracer.
+        </p>
+        <div class="skill-tags">
+          <span class="skill-tag">LAN / WAN</span>
+          <span class="skill-tag">TCP/IP</span>
+          <span class="skill-tag">Subnetting</span>
+          <span class="skill-tag">Cisco Packet Tracer</span>
+          <span class="skill-tag">Routing &amp; Switching</span>
+          <span class="skill-tag">Network Security</span>
+        </div>
+        <div class="skill-bar-wrap" style="margin-top:1rem;">
+          <div class="skill-bar" data-width="82"><div class="skill-fill"></div></div>
+          <span>82%</span>
+        </div>
+      </div>
+
+      <!-- Unit 2: Graphic Design -->
+      <div class="skill-category" data-aos="fade-up" data-delay="100">
+        <div class="skill-icon-wrap"><i class="fas fa-paint-brush"></i></div>
+        <h3>Graphic Design &amp; Multimedia</h3>
+        <p>
+          Developed skills in visual communication, digital media production, and brand identity
+          design. Studies cover principles of design (colour theory, typography, layout), image
+          editing, vector graphics, poster and flyer creation, and introduction to video editing
+          using industry-standard software.
+        </p>
+        <div class="skill-tags">
+          <span class="skill-tag">Adobe Photoshop</span>
+          <span class="skill-tag">CorelDRAW</span>
+          <span class="skill-tag">Canva</span>
+          <span class="skill-tag">Typography</span>
+          <span class="skill-tag">Colour Theory</span>
+          <span class="skill-tag">Branding</span>
+        </div>
+        <div class="skill-bar-wrap" style="margin-top:1rem;">
+          <div class="skill-bar" data-width="78"><div class="skill-fill"></div></div>
+          <span>78%</span>
+        </div>
+      </div>
+
+      <!-- Unit 3: Computer Architecture -->
+      <div class="skill-category" data-aos="fade-up" data-delay="200">
+        <div class="skill-icon-wrap"><i class="fas fa-microchip"></i></div>
+        <h3>Computer Organisation &amp; Architecture</h3>
+        <p>
+          Studied the internal structure and operation of computers — including CPU design and
+          the fetch-decode-execute cycle, memory hierarchy (registers, cache, RAM, secondary
+          storage), instruction set architectures, number systems (binary, hexadecimal), Boolean
+          algebra, logic gates, and digital circuit design.
+        </p>
+        <div class="skill-tags">
+          <span class="skill-tag">CPU Architecture</span>
+          <span class="skill-tag">Memory Hierarchy</span>
+          <span class="skill-tag">Logic Gates</span>
+          <span class="skill-tag">Number Systems</span>
+          <span class="skill-tag">Boolean Algebra</span>
+          <span class="skill-tag">Instruction Sets</span>
+        </div>
+        <div class="skill-bar-wrap" style="margin-top:1rem;">
+          <div class="skill-bar" data-width="75"><div class="skill-fill"></div></div>
+          <span>75%</span>
+        </div>
+      </div>
+
+      <!-- Unit 4: Operating Systems -->
+      <div class="skill-category" data-aos="fade-up" data-delay="300">
+        <div class="skill-icon-wrap"><i class="fas fa-server"></i></div>
+        <h3>Operating Systems</h3>
+        <p>
+          Covered the core concepts behind modern operating systems — process management,
+          CPU scheduling algorithms (FCFS, SJF, Round Robin), memory management (paging,
+          segmentation, virtual memory), file system organisation, deadlock handling, inter-process
+          communication, and practical use of both Windows and Linux environments.
+        </p>
+        <div class="skill-tags">
+          <span class="skill-tag">Process Management</span>
+          <span class="skill-tag">CPU Scheduling</span>
+          <span class="skill-tag">Virtual Memory</span>
+          <span class="skill-tag">File Systems</span>
+          <span class="skill-tag">Linux CLI</span>
+          <span class="skill-tag">Deadlock Handling</span>
+        </div>
+        <div class="skill-bar-wrap" style="margin-top:1rem;">
+          <div class="skill-bar" data-width="80"><div class="skill-fill"></div></div>
+          <span>80%</span>
+        </div>
+      </div>
+
+      <!-- Unit 5: Web Development -->
+      <div class="skill-category" data-aos="fade-up" data-delay="400">
+        <div class="skill-icon-wrap"><i class="fas fa-globe"></i></div>
+        <h3>Website Development</h3>
+        <p>
+          Acquired practical skills in building fully responsive, standards-compliant websites.
+          Covers semantic HTML5, advanced CSS3 (Flexbox, Grid, animations), JavaScript (DOM
+          manipulation, events, form validation, localStorage), basic back-end concepts, and
+          website deployment. This digital CV is a direct product of this unit.
+        </p>
+        <div class="skill-tags">
+          <span class="skill-tag">HTML5</span>
+          <span class="skill-tag">CSS3 / Flexbox / Grid</span>
+          <span class="skill-tag">JavaScript (ES6+)</span>
+          <span class="skill-tag">Responsive Design</span>
+          <span class="skill-tag">DOM Manipulation</span>
+          <span class="skill-tag">Web Deployment</span>
+        </div>
+        <div class="skill-bar-wrap" style="margin-top:1rem;">
+          <div class="skill-bar" data-width="88"><div class="skill-fill"></div></div>
+          <span>88%</span>
+        </div>
+      </div>
+
+      <!-- Unit 6: Java Programming -->
+      <div class="skill-category" data-aos="fade-up" data-delay="500">
+        <div class="skill-icon-wrap"><i class="fab fa-java"></i></div>
+        <h3>Java Programming</h3>
+        <p>
+          Learned object-oriented programming fundamentals using Java — covering classes and
+          objects, inheritance, polymorphism, encapsulation, and abstraction. Also covers
+          exception handling, collections framework, file I/O, basic data structures (arrays,
+          linked lists, stacks, queues), and GUI development using Java Swing.
+        </p>
+        <div class="skill-tags">
+          <span class="skill-tag">OOP Principles</span>
+          <span class="skill-tag">Classes &amp; Objects</span>
+          <span class="skill-tag">Inheritance</span>
+          <span class="skill-tag">Exception Handling</span>
+          <span class="skill-tag">Data Structures</span>
+          <span class="skill-tag">Java Swing GUI</span>
+        </div>
+        <div class="skill-bar-wrap" style="margin-top:1rem;">
+          <div class="skill-bar" data-width="77"><div class="skill-fill"></div></div>
+          <span>77%</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== EDUCATION SECTION ========== -->
+<section class="education section" id="education">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">My Academic Journey</span>
+      <h2 class="section-title">Education &amp; <span>Training</span></h2>
+      <div class="title-bar"></div>
+    </div>
+    <div class="timeline">
+
+      <!-- CURRENT: Diploma -->
+      <div class="timeline-item" data-aos="fade-right">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-header">
+            <!-- NYS uniform photo as institution thumbnail -->
+            <img
+              src="images/raymond-nys-uniform.jpeg"
+              alt="Raymond Okinyi in NYS uniform"
+              class="nys-uniform-img"
+            />
+            <div>
+              <h3>Diploma in Computer Science</h3>
+              <span class="timeline-org">NYS Engineering Institute, Nairobi</span>
+            </div>
+          </div>
+          <span class="timeline-date"><i class="fas fa-calendar-alt"></i> 2024 – Present</span>
+          <span class="timeline-badge" style="margin-left:.5rem;">In Progress</span>
+
+          <p style="font-size:.83rem;color:var(--text-muted);line-height:1.75;margin:.75rem 0;">
+            Enrolled in the Diploma in Computer Science programme at NYS Engineering Institute,
+            Nairobi — a rigorous, nationally recognised qualification that blends theory with
+            intensive practical lab work. The programme has built a strong technical foundation
+            spanning networking, software development, graphic design, and computer systems,
+            providing a 360° view of the ICT landscape.
+          </p>
+
+          <div class="timeline-subjects">
+            <h4><i class="fas fa-book-open" style="color:var(--primary);margin-right:.4rem;"></i>Units Covered</h4>
+            <span class="subject-pill"><i class="fas fa-network-wired"></i> Networking &amp; Infrastructure</span>
+            <span class="subject-pill"><i class="fas fa-paint-brush"></i> Graphic Design &amp; Multimedia</span>
+            <span class="subject-pill"><i class="fas fa-microchip"></i> Computer Organisation &amp; Architecture</span>
+            <span class="subject-pill"><i class="fas fa-server"></i> Operating Systems</span>
+            <span class="subject-pill"><i class="fas fa-globe"></i> Website Development</span>
+            <span class="subject-pill"><i class="fab fa-java"></i> Java Programming</span>
+          </div>
+
+          <ul class="timeline-list" style="margin-top:.85rem;">
+            <li>Hands-on lab sessions in network configuration and Cisco simulation</li>
+            <li>Practical graphic design projects for real-world branding tasks</li>
+            <li>Built fully functional web applications including this digital CV</li>
+            <li>Developed Java desktop applications using OOP concepts</li>
+            <li>Studied OS internals and low-level hardware organisation</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SECONDARY EDUCATION -->
+      <div class="timeline-item" data-aos="fade-left">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-header">
+            <div class="timeline-icon"><i class="fas fa-school"></i></div>
+            <div>
+              <h3>Kenya Certificate of Secondary Education (KCSE)</h3>
+              <span class="timeline-org">Lwanya Secondary School, Siaya County, Kenya</span>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:center;flex-wrap:wrap;gap:.5rem;margin-bottom:.75rem;">
+            <span class="timeline-date" style="margin:0;"><i class="fas fa-calendar-alt"></i> 2019 – 2022</span>
+            <span class="grade-badge"><i class="fas fa-star"></i> Mean Grade: C</span>
+            <span class="timeline-badge completed">Completed</span>
+          </div>
+
+          <p style="font-size:.83rem;color:var(--text-muted);line-height:1.75;margin-bottom:.75rem;">
+            Completed the four-year secondary education programme under the Kenya National
+            Examinations Council (KNEC) curriculum. Achieved a <strong>Mean Grade C</strong>
+            at the end of 2022, with notable performance in Computer Studies and Mathematics
+            — subjects that laid the groundwork for a career in Information Technology.
+          </p>
+
+          <div class="timeline-subjects">
+            <h4><i class="fas fa-book" style="color:var(--primary);margin-right:.4rem;"></i>Key Subjects</h4>
+            <span class="subject-pill"><i class="fas fa-calculator"></i> Mathematics</span>
+            <span class="subject-pill"><i class="fas fa-desktop"></i> Computer Studies</span>
+            <span class="subject-pill"><i class="fas fa-flask"></i> Physics</span>
+            <span class="subject-pill"><i class="fas fa-language"></i> English</span>
+            <span class="subject-pill"><i class="fas fa-language"></i> Kiswahili</span>
+            <span class="subject-pill"><i class="fas fa-seedling"></i> Biology</span>
+          </div>
+
+          <ul class="timeline-list" style="margin-top:.85rem;">
+            <li>Developed strong analytical and problem-solving skills through Mathematics and Sciences</li>
+            <li>Gained foundational ICT knowledge through Computer Studies practicals</li>
+            <li>Built communication and writing skills through English and Kiswahili</li>
+            <li>Grade C (plain) qualification met entry requirements for the Diploma programme at NYS</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== PROJECTS SECTION ========== -->
+<section class="projects section" id="projects">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">My Work</span>
+      <h2 class="section-title">Featured <span>Projects</span></h2>
+      <div class="title-bar"></div>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card" data-aos="fade-up">
+        <div class="project-img">
+          <div class="project-placeholder"><i class="fas fa-network-wired"></i></div>
+          <div class="project-overlay">
+            <span class="project-link coming-soon"><i class="fas fa-clock"></i> Coming Soon</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <span class="project-tag">Networking</span>
+          <h3>Campus Network Design</h3>
+          <p>Designed and simulated a full campus LAN/WAN network topology using Cisco Packet Tracer — covering IP addressing, routing, VLANs, and security.</p>
+          <div class="project-tech">
+            <span>Cisco</span><span>TCP/IP</span><span>VLANs</span><span>Routing</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card" data-aos="fade-up" data-delay="100">
+        <div class="project-img">
+          <div class="project-placeholder"><i class="fas fa-globe"></i></div>
+          <div class="project-overlay">
+            <span class="project-link coming-soon"><i class="fas fa-clock"></i> Coming Soon</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <span class="project-tag">Web Development</span>
+          <h3>Digital CV Platform</h3>
+          <p>Built this fully responsive professional digital CV complete with an admin dashboard, messaging system, and skill management panel.</p>
+          <div class="project-tech">
+            <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card" data-aos="fade-up" data-delay="200">
+        <div class="project-img">
+          <div class="project-placeholder"><i class="fab fa-java"></i></div>
+          <div class="project-overlay">
+            <span class="project-link coming-soon"><i class="fas fa-clock"></i> Coming Soon</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <span class="project-tag">Java</span>
+          <h3>Student Management System</h3>
+          <p>Developed a Java OOP desktop application for managing student records, grades, and reports using Java Swing for the GUI.</p>
+          <div class="project-tech">
+            <span>Java</span><span>OOP</span><span>Swing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CERTIFICATES & ACHIEVEMENTS ========== -->
+<section class="certificates section" id="certificates">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Credentials</span>
+      <h2 class="section-title">Certificates &amp; <span>Achievements</span></h2>
+      <div class="title-bar"></div>
+    </div>
+    <div class="certs-grid">
+
+      <div class="cert-card" data-aos="fade-up" data-delay="0">
+        <div class="cert-icon" style="background:linear-gradient(135deg,#1a73e8,#1557b0);">
+          <i class="fas fa-scroll"></i>
+        </div>
+        <div class="cert-body">
+          <h4>Diploma in Computer Science</h4>
+          <p>NYS Engineering Institute, Nairobi — Nationally accredited qualification covering networking, web development, graphic design, OS, Java and computer architecture.</p>
+          <span class="cert-year">2024 – Present</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-aos="fade-up" data-delay="100">
+        <div class="cert-icon" style="background:linear-gradient(135deg,#0d9488,#0f766e);">
+          <i class="fas fa-network-wired"></i>
+        </div>
+        <div class="cert-body">
+          <h4>Networking &amp; Infrastructure</h4>
+          <p>Completed practical unit covering LAN/WAN design, TCP/IP, subnetting, routing protocols and Cisco Packet Tracer simulation at NYS Engineering Institute.</p>
+          <span class="cert-year">2024</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-aos="fade-up" data-delay="200">
+        <div class="cert-icon" style="background:linear-gradient(135deg,#f59e0b,#d97706);">
+          <i class="fas fa-paint-brush"></i>
+        </div>
+        <div class="cert-body">
+          <h4>Graphic Design &amp; Multimedia</h4>
+          <p>Practical unit covering visual communication, Adobe Photoshop, CorelDRAW, Canva, branding and digital media production.</p>
+          <span class="cert-year">2024</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-aos="fade-up" data-delay="300">
+        <div class="cert-icon" style="background:linear-gradient(135deg,#7c3aed,#5b21b6);">
+          <i class="fas fa-globe"></i>
+        </div>
+        <div class="cert-body">
+          <h4>Website Development</h4>
+          <p>Built responsive websites using HTML5, CSS3, JavaScript and modern web standards. Final project: this professional digital CV with Node.js backend.</p>
+          <span class="cert-year">2025</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-aos="fade-up" data-delay="400">
+        <div class="cert-icon" style="background:linear-gradient(135deg,#ef4444,#b91c1c);">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <div class="cert-body">
+          <h4>NYS Discipline &amp; Leadership Training</h4>
+          <p>Completed rigorous National Youth Service training programme, building leadership, teamwork, discipline, punctuality and community service skills.</p>
+          <span class="cert-year">2024</span>
+        </div>
+      </div>
+
+      <div class="cert-card" data-aos="fade-up" data-delay="500">
+        <div class="cert-icon" style="background:linear-gradient(135deg,#0ea5e9,#0369a1);">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div class="cert-body">
+          <h4>Kenya Certificate of Secondary Education</h4>
+          <p>Completed 4-year secondary education under KNEC curriculum with Mean Grade C, demonstrating strong foundations in Mathematics, Computer Studies and Sciences.</p>
+          <span class="cert-year">2022</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== LANGUAGES & INTERESTS ========== -->
+<section class="section" id="languages" style="background:var(--white);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">More About Me</span>
+      <h2 class="section-title">Languages &amp; <span>Interests</span></h2>
+      <div class="title-bar"></div>
+    </div>
+    <div class="lang-int-grid">
+
+      <!-- Languages -->
+      <div data-aos="fade-right">
+        <h3 style="font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem;">
+          <i class="fas fa-language" style="color:var(--primary);"></i> Languages
+        </h3>
+        <div class="lang-item">
+          <span class="lang-name">English</span>
+          <span class="lang-level fluent">Fluent</span>
+        </div>
+        <div class="lang-item">
+          <span class="lang-name">Kiswahili</span>
+          <span class="lang-level native">Native</span>
+        </div>
+        <div class="lang-item">
+          <span class="lang-name">Luo (Dholuo)</span>
+          <span class="lang-level native">Native</span>
+        </div>
+      </div>
+
+      <!-- Interests -->
+      <div data-aos="fade-left">
+        <h3 style="font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem;">
+          <i class="fas fa-heart" style="color:var(--primary);"></i> Interests &amp; Hobbies
+        </h3>
+        <div class="interest-tags">
+          <span class="interest-tag"><i class="fas fa-network-wired"></i> Networking</span>
+          <span class="interest-tag"><i class="fas fa-code"></i> Web Development</span>
+          <span class="interest-tag"><i class="fas fa-paint-brush"></i> Graphic Design</span>
+          <span class="interest-tag"><i class="fas fa-shield-alt"></i> Cyber Security</span>
+          <span class="interest-tag"><i class="fas fa-robot"></i> Artificial Intelligence</span>
+          <span class="interest-tag"><i class="fas fa-football-ball"></i> Football</span>
+          <span class="interest-tag"><i class="fas fa-book-open"></i> Reading Tech Blogs</span>
+          <span class="interest-tag"><i class="fas fa-hands-helping"></i> Community Service</span>
+          <span class="interest-tag"><i class="fas fa-camera"></i> Photography</span>
+          <span class="interest-tag"><i class="fas fa-music"></i> Music</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== REFEREES ========== -->
+<section class="referees section" id="referees">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">References</span>
+      <h2 class="section-title">My <span>Referees</span></h2>
+      <div class="title-bar"></div>
+      <p style="color:var(--text-muted);font-size:.88rem;margin-top:.75rem;max-width:560px;margin-left:auto;margin-right:auto;">
+        Professional references who can speak to my character, discipline, academic performance and technical ability.
+      </p>
+    </div>
+
+    <div class="referees-grid">
+
+      <!-- Referee 1 — Benard Dero -->
+      <div class="referee-card" data-aos="fade-up" data-delay="0">
+        <div class="referee-avatar" style="background:linear-gradient(135deg,#1a73e8,#1557b0);">BD</div>
+        <h4>Benard Odero</h4>
+        <div class="referee-title">Lecturer &amp; Supervisor</div>
+        <div class="referee-org">
+          <i class="fas fa-university" style="color:var(--primary);margin-right:.35rem;font-size:.7rem;"></i>
+          NYS Engineering Institute, Nairobi
+        </div>
+        <div class="referee-divider"></div>
+        <div class="referee-contacts">
+          <a href="tel:+254728005323" aria-label="Call Benard Odero">
+            <i class="fas fa-phone"></i> 0728 005 323
+          </a>
+          <a href="sms:+254728005323" aria-label="SMS Benard Odero">
+            <i class="fas fa-sms"></i> Send SMS
+          </a>
+        </div>
+        <div class="referee-note">
+          <i class="fas fa-quote-left"></i>
+          Mr. Odero oversees the Computer Science diploma programme and can attest to academic progress, technical skills and professional conduct.
+        </div>
+      </div>
+
+      <!-- Referee 2 — Benard Esadia -->
+      <div class="referee-card" data-aos="fade-up" data-delay="150">
+        <div class="referee-avatar" style="background:linear-gradient(135deg,#0d9488,#0f766e);">BE</div>
+        <h4>Benard Esadia</h4>
+        <div class="referee-title">Instructor</div>
+        <div class="referee-org">
+          <i class="fas fa-university" style="color:var(--accent);margin-right:.35rem;font-size:.7rem;"></i>
+          NYS Engineering Institute, Nairobi
+        </div>
+        <div class="referee-divider"></div>
+        <div class="referee-contacts">
+          <a href="tel:+254736446826" aria-label="Call Benard Esadia">
+            <i class="fas fa-phone"></i> 0736 446 826
+          </a>
+          <a href="sms:+254736446826" aria-label="SMS Benard Esadia">
+            <i class="fas fa-sms"></i> Send SMS
+          </a>
+        </div>
+        <div class="referee-note">
+          <i class="fas fa-quote-left"></i>
+          Mr. Esadia delivers practical instruction across networking and computer systems units and can verify hands-on skills and classroom dedication.
+        </div>
+      </div>
+
+      <!-- Referee 3 — Tonney Odhiambo -->
+      <div class="referee-card" data-aos="fade-up" data-delay="300">
+        <div class="referee-avatar" style="background:linear-gradient(135deg,#f59e0b,#d97706);">TO</div>
+        <h4>Tonney Odhiambo</h4>
+        <div class="referee-title">Class Teacher</div>
+        <div class="referee-org">
+          <i class="fas fa-school" style="color:var(--gold);margin-right:.35rem;font-size:.7rem;"></i>
+          Rabwao Secondary School, migori County
+        </div>
+        <div class="referee-divider"></div>
+        <div class="referee-contacts">
+          <a href="tel:+254790944155" aria-label="Call Tonney Odhiambo">
+            <i class="fas fa-phone"></i> 0790 944 155
+          </a>
+          <a href="sms:+254790944155" aria-label="SMS Tonney Odhiambo">
+            <i class="fas fa-sms"></i> Send SMS
+          </a>
+        </div>
+        <div class="referee-note">
+          <i class="fas fa-quote-left"></i>
+          Mr. Odhiambo guided Raymond through secondary education and can speak to his character, responsibility and academic foundation from 2019 to 2022.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Professional note at bottom -->
+    <p style="text-align:center;margin-top:2.5rem;font-size:.8rem;color:var(--text-muted);">
+      <i class="fas fa-info-circle" style="color:var(--primary);margin-right:.35rem;"></i>
+      Please contact referees during working hours (Mon–Fri, 8am–5pm EAT). Kindly inform Raymond before making contact.
+    </p>
+
+  </div>
+</section>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT SECTION ========== -->
+<section class="contact section" id="contact">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Get In Touch</span>
+      <h2 class="section-title">Contact <span>Me</span></h2>
+      <div class="title-bar"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info" data-aos="fade-right">
+        <h3>Let's Talk!</h3>
+        <p>Feel free to reach out for collaborations, project opportunities, or just to say hello. I'll get back to you as soon as possible.</p>
+        <div class="contact-cards">
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <div class="contact-detail">
+              <span>Email</span>
+              <strong>raymondopiyo67@gmail.com</strong>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+            <div class="contact-detail">
+              <span>Phone</span>
+              <strong>0795058238</strong>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="contact-detail">
+              <span>Location</span>
+              <strong>Nairobi, Kenya</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrap" data-aos="fade-left">
+
+        <!-- EmailJS config notice (shown only until keys are set) -->
+        <div id="emailjsNotice" class="emailjs-notice" style="display:none;">
+          <i class="fas fa-exclamation-triangle"></i>
+          EmailJS not configured yet. See setup instructions in the Admin panel.
+        </div>
+
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="senderName"><i class="fas fa-user"></i> Your Name</label>
+              <input type="text" id="senderName" name="from_name" placeholder="John Doe" required aria-required="true"/>
+            </div>
+            <div class="form-group">
+              <label for="senderEmail"><i class="fas fa-envelope"></i> Your Email</label>
+              <input type="email" id="senderEmail" name="reply_to" placeholder="john@email.com" required aria-required="true"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="msgSubject"><i class="fas fa-tag"></i> Subject</label>
+            <input type="text" id="msgSubject" name="subject" placeholder="e.g. Job Opportunity / Collaboration" required aria-required="true"/>
+          </div>
+          <div class="form-group">
+            <label for="msgBody"><i class="fas fa-comment"></i> Message</label>
+            <textarea id="msgBody" name="message" rows="5" placeholder="Write your message here..." required aria-required="true"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+          <div id="formFeedback" class="form-feedback" role="alert" aria-live="polite"></div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo-icon">R</span>
+        <div>
+          <strong>Raymond Okinyi</strong>
+          <p>Diploma in Computer Science | NYS Engineering Institute, Nairobi</p>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#contact">Contact</a>
+        <a href="admin/login.html">Admin</a>
+      </div>
+      <div class="footer-socials">
+        <a href="mailto:raymondopiyo67@gmail.com" aria-label="Email Raymond"><i class="fas fa-envelope"></i></a>
+        <a href="tel:+254795058238"               aria-label="Call Raymond"><i class="fas fa-phone"></i></a>
+        <a href="https://linkedin.com/in/raymond-okinyi" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/raymond-okinyi"      aria-label="GitHub"   target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="footerYear"></span> Raymond Okinyi. All rights reserved.</p>
+      <p>Built with <i class="fas fa-heart"></i> In Proffesionalism</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+<script src="js/api.js"></script>
+<script src="js/main.js"></script>
+<script>
+/* ── Contact form → real backend API ── */
+const contactForm  = document.getElementById('contactForm');
+const submitBtn    = document.getElementById('submitBtn');
+const formFeedback = document.getElementById('formFeedback');
+
+// Hide the EmailJS notice — we're using the real backend now
+const ejsNotice = document.getElementById('emailjsNotice');
+if (ejsNotice) ejsNotice.style.display = 'none';
+
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const name    = document.getElementById('senderName').value.trim();
+    const email   = document.getElementById('senderEmail').value.trim();
+    const subject = document.getElementById('msgSubject').value.trim();
+    const body    = document.getElementById('msgBody').value.trim();
+
+    if (!name || !email || !subject || !body) {
+      showFeedback('Please fill in all fields.', 'error'); return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending…';
+
+    try {
+      await ApiMessages.submit({ name, email, subject, body });
+      showFeedback('✅ Message sent! Raymond will reply to ' + email + ' shortly.', 'success');
+      contactForm.reset();
+    } catch (err) {
+      showFeedback('⚠ ' + (err.message || 'Failed to send. Please try again.'), 'error');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+    }
+  });
+}
+
+function showFeedback(msg, type) {
+  if (!formFeedback) return;
+  formFeedback.textContent = msg;
+  formFeedback.className   = 'form-feedback ' + type;
+  setTimeout(() => { formFeedback.className = 'form-feedback'; }, 6000);
+}
+</script>
+
+<!-- ============================================
+     CV LIVE READER — applies admin edits to DOM
+     ============================================ -->
+<script>
+(async function applyCVEdits() {
+  // Try to load live profile from backend API first, fall back to localStorage
+  let d = {};
+  try {
+    const profile = await ApiProfile.get();
+    if (profile && profile.name) d = profile;
+  } catch (e) {
+    // Backend not running — fall back to localStorage (works offline / static hosting)
+    const local = JSON.parse(localStorage.getItem('cv_maint') || '{}');
+    const legacy = JSON.parse(localStorage.getItem('cv_profile') || '{}');
+    d = { ...legacy, ...local };
+    // Map legacy keys to backend keys
+    if (d.hero_bio === undefined && d.heroBio) d.hero_bio = d.heroBio;
+    if (d.edu1_qual === undefined && d.edu1Qual) {
+      ['qual','school','year','status','desc'].forEach(k => {
+        d['edu1_' + k] = d['edu1' + k.charAt(0).toUpperCase() + k.slice(1)];
+        d['edu2_' + k] = d['edu2' + k.charAt(0).toUpperCase() + k.slice(1)];
+      });
+      d.edu2_grade = d.edu2Grade;
+    }
+    d.about1 = d.about1 || null;
+    d.about2 = d.about2 || null;
+    d.about3 = d.about3 || null;
+  }
+
+  const photo = localStorage.getItem('cv_photo') || d.photo_url;
+
+  // ---- PHOTO ----
+  if (photo) {
+    document.querySelectorAll('.profile-img-real, .about-img-real').forEach(img => {
+      img.src = photo;
+    });
+  }
+
+  // ---- NAME ----
+  if (d.name) {
+    const heroName = document.querySelector('.hero-name');
+    if (heroName) {
+      const parts = d.name.trim().split(' ');
+      heroName.innerHTML = parts.length > 1
+        ? parts[0] + ' <span>' + parts.slice(1).join(' ') + '</span>'
+        : '<span>' + d.name + '</span>';
+    }
+    document.querySelectorAll('.footer-brand strong').forEach(el => el.textContent = d.name);
+    document.title = d.name + ' | Digital CV';
+  }
+
+  // ---- HERO BIO ----
+  if (d.hero_bio) {
+    const bioEl = document.querySelector('.hero-bio');
+    if (bioEl) bioEl.innerHTML = d.hero_bio;
+  }
+
+  // ---- ABOUT PARAGRAPHS ----
+  const aboutParas = document.querySelectorAll('.about-right > p');
+  if (d.about1 && aboutParas[0]) aboutParas[0].innerHTML = d.about1;
+  if (d.about2 && aboutParas[1]) aboutParas[1].innerHTML = d.about2;
+  if (d.about3 && aboutParas[2]) aboutParas[2].innerHTML = d.about3;
+
+  // ---- CHIPS ----
+  document.querySelectorAll('.chip').forEach(chip => {
+    if (d.school   && chip.querySelector('.fa-university'))    chip.lastChild.textContent = ' ' + d.school;
+    if (d.location && chip.querySelector('.fa-map-marker-alt')) chip.lastChild.textContent = ' ' + d.location;
+    if (d.email    && chip.querySelector('.fa-envelope'))      chip.lastChild.textContent = ' ' + d.email;
+    if (d.phone    && chip.querySelector('.fa-phone'))         chip.lastChild.textContent = ' ' + d.phone;
+  });
+
+  // ---- CONTACT CARDS ----
+  document.querySelectorAll('.contact-detail').forEach(card => {
+    const label = card.querySelector('span')?.textContent;
+    const strong = card.querySelector('strong');
+    if (!strong) return;
+    if (label === 'Email'            && d.email)    strong.textContent = d.email;
+    if (label === 'Phone / WhatsApp' && d.phone)    strong.textContent = d.phone;
+    if (label === 'Location'         && d.location) strong.textContent = d.location;
+  });
+
+  // ---- MAILTO / TEL LINKS ----
+  if (d.email) document.querySelectorAll('a[href^="mailto:"]').forEach(a => a.href = 'mailto:' + d.email);
+  if (d.phone) document.querySelectorAll('a[href^="tel:"]').forEach(a => a.href = 'tel:' + d.phone);
+  if (d.linkedin && d.linkedin !== '#') document.querySelectorAll('a[title="LinkedIn"]').forEach(a => a.href = d.linkedin);
+  if (d.github   && d.github   !== '#') document.querySelectorAll('a[title="GitHub"]').forEach(a => a.href = d.github);
+
+  // ---- EDUCATION — Diploma ----
+  const edu1Cards = document.querySelectorAll('.timeline-card');
+  if (edu1Cards.length > 0) {
+    const c1 = edu1Cards[0];
+    if (d.edu1_qual)   { const h = c1.querySelector('h3'); if (h) h.textContent = d.edu1_qual; }
+    if (d.edu1_school) { const o = c1.querySelector('.timeline-org'); if (o) o.textContent = d.edu1_school; }
+    if (d.edu1_year)   { const dt = c1.querySelector('.timeline-date'); if (dt) dt.innerHTML = '<i class="fas fa-calendar-alt"></i> ' + d.edu1_year; }
+    if (d.edu1_status) { const b = c1.querySelector('.timeline-badge'); if (b) b.textContent = d.edu1_status; }
+    if (d.edu1_desc)   { const p = c1.querySelector('p[style]'); if (p) p.textContent = d.edu1_desc; }
+  }
+
+  // ---- EDUCATION — Secondary ----
+  if (edu1Cards.length > 1) {
+    const c2 = edu1Cards[1];
+    if (d.edu2_qual)   { const h = c2.querySelector('h3'); if (h) h.textContent = d.edu2_qual; }
+    if (d.edu2_school) { const o = c2.querySelector('.timeline-org'); if (o) o.textContent = d.edu2_school; }
+    if (d.edu2_year)   { const dt = c2.querySelector('.timeline-date'); if (dt) dt.innerHTML = '<i class="fas fa-calendar-alt"></i> ' + d.edu2_year; }
+    if (d.edu2_grade)  { const gb = c2.querySelector('.grade-badge'); if (gb) gb.innerHTML = '<i class="fas fa-star"></i> ' + d.edu2_grade; }
+    if (d.edu2_desc)   { const p = c2.querySelector('p[style]'); if (p) p.textContent = d.edu2_desc; }
+  }
+
+  // ---- SKILLS from backend ----
+  try {
+    const skills = await ApiSkills.get();
+    if (skills && skills.length) {
+      const bars = document.querySelectorAll('.skill-bar');
+      skills.forEach((s, i) => {
+        if (bars[i]) bars[i].setAttribute('data-width', s.pct);
+        // Update the percentage label
+        const wrap = bars[i]?.closest('.skill-bar-wrap');
+        if (wrap) {
+          const label = wrap.querySelector('span');
+          if (label) label.textContent = s.pct + '%';
+        }
+      });
+    }
+  } catch { /* non-critical — keep HTML defaults */ }
+
+})();
+</script>
+</body>
+</html>
+
